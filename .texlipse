@@ -1,0 +1,14 @@
+#TeXlipse project settings
+#Mon Dec 09 11:27:09 PST 2024
+bibrefDir=
+builderNum=2
+langSpell=en
+mainTexFile=math140b-notes.tex
+makeIndSty=
+markDer=true
+markTmpDer=true
+outputDir=
+outputFile=math140b-notes.pdf
+outputFormat=pdf
+srcDir=
+tempDir=

@@ -1,0 +1,8 @@
+/tmp/
+math140b-notes.pdf
+*synctex.gz
+*synctex
+*.aux
+*.log
+*.out
+*.toc

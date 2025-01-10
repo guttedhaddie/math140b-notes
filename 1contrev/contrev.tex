@@ -292,12 +292,15 @@ Theses claims are tedious to prove using elementary definitions. In particular, 
 \vfil\goodbreak
 
 \begin{exercises}
-	\exstart Give examples to show that $g\circ f$ being continuous can happen with:\vspace{-5pt}
-	\begin{enumerate}\setcounter{enumi}{1}  
-	  \item[]\begin{enumerate}
-	    \item $f$ continuous and $g$ discontinuous.
-	    \item $g$ continuous and $f$ discontinuous.
-	    \item Both $f,g$ discontinuous.
+	\emph{Key concepts/results:\quad Suprema/Completeness,\quad Sequential \& $\epsilon$-$\delta$ continuity}
+
+
+% 	\exstart Give examples to show that $g\circ f$ being continuous can happen with:\vspace{-5pt}
+	\begin{enumerate}\itemsep0pt%\setcounter{enumi}{1}  
+	  \item Give examples to show that $g\circ f$ being continuous can happen with:
+	  \begin{enumerate}
+	    \item $f$ continuous and $g$ discontinuous. \qquad\qquad (b) \ $g$ continuous and $f$ discontinuous.
+	    \item[(c)] Both $f,g$ discontinuous.
 	  \end{enumerate}
 	  You may use pictures, but make sure they clearly describe the functions $f,g$.
 	  
@@ -350,6 +353,8 @@ Theses claims are tedious to prove using elementary definitions. In particular, 
 	  For example, $f(1)=f(2)=f(-7)=1$, and $f(\tfrac 12)=f(-\tfrac 12)=f(\tfrac 32)=\cdots=\frac 12$, etc. Prove that $f$ is continuous at each point of $\R\setminus\Q$ and discontinuous at each point of $\Q$.
 	\end{enumerate}
 \end{exercises}
+
+%\vspace{-10pt}
 
 \footnotetext{%
 	This is a good moment to review the notion of a Cauchy sequence
@@ -505,9 +510,15 @@ is also a union of intervals, though these need not be disjoint: a continuous fu
 
 
 \begin{exercises}
-	\exstart Give examples of the following:\vspace{-5pt}
-	\begin{enumerate}\setcounter{enumi}{1}  
-	  \item[]\begin{enumerate}
+	\emph{Key concepts:\quad Extreme Value Theorem,\quad Intermediate Value Theorem}\vspace{-5pt}
+	\begin{quote}
+		\emph{Continuous functions preserve intervals}
+	\end{quote}
+
+	%\exstart Give examples of the following:\vspace{-5pt}
+	\begin{enumerate}%\setcounter{enumi}{1}  
+	  \item Give examples of the following:
+	  \begin{enumerate}
 	    \item An unbounded discontinuous function on a closed bounded interval.
 	    \item An unbounded continuous function on a non-closed bounded interval.
 	    \item A bounded continuous function on a closed unbounded interval which fails to attain its bounds.
@@ -741,9 +752,15 @@ We now see that a function $f:I\to \R$ is uniformly continuous on a bounded inte
 
 
 \begin{exercises}
-	\exstart Which functions are uniformly continuous? Justify your answers.\vspace{-5pt}
+	\emph{Key concepts:\quad Uniform Continuity (same $\delta$ for all locations),\quad Bounded gradient,}\vspace{-5pt}
+	\begin{quote}
+		\emph{Continuous extensions}
+	\end{quote}
+	
+	%\exstart Which functions are uniformly continuous? Justify your answers.\vspace{-5pt}
 	\begin{enumerate}\setcounter{enumi}{1}  
-	  \item[]\begin{enumerate}
+	  \item Which functions are uniformly continuous? Justify your answers.
+	  \begin{enumerate}
 	    \item \makebox[200pt][l]{$f(x)=x^4$ on $[-1,1]$\hfill (b) }
 	    $f(x)=x^4$ on $(-1,1]$
 	    \setcounter{enumii}{2}
@@ -1111,8 +1128,14 @@ It is also reasonable to refer to removable, infinite or essential discontinuiti
 \clearpage
 
 \begin{exercises}
-	\exstart For the function $f(x)=\frac{x^3}{\nm x}$, determine the limits $\lim\limits_{x\to\infty}f(x)$, $\lim\limits_{x\to-\infty}f(x)$, $\lim\limits_{x\to 0^-}f(x)$, $\lim\limits_{x\to 0^+}f(x)$ and $\lim\limits_{x\to 0}f(x)$, if they exist.
-	\begin{enumerate}\setcounter{enumi}{1}\itemsep0pt 
+	\emph{Key concepts:\quad $\lim\limits_{x\to a}f(x)=L$,\quad $\epsilon,\delta,M,N$  versions,\quad Limit Laws,\quad Discontinuities}
+
+
+	%\exstart For the function $f(x)=\frac{x^3}{\nm x}$, determine the limits $\lim\limits_{x\to\infty}f(x)$, $\lim\limits_{x\to-\infty}f(x)$, $\lim\limits_{x\to 0^-}f(x)$, $\lim\limits_{x\to 0^+}f(x)$ and $\lim\limits_{x\to 0}f(x)$, if they exist.
+	
+	\begin{enumerate}\itemsep0pt%\setcounter{enumi}{1}\itemsep0pt 
+	  \item Given $f(x)=\frac{x^3}{\nm x}$, find $\lim\limits_{x\to\infty}f(x)$, $\lim\limits_{x\to-\infty}f(x)$, $\lim\limits_{x\to 0^-}f(x)$, $\lim\limits_{x\to 0^+}f(x)$ and $\lim\limits_{x\to 0}f(x)$, if they exist.
+	  
 	  \item Evaluate the following limits \emph{using the methods of this section}
 	  \begin{enumerate}
 	    \item \makebox[140pt][l]{$\displaystyle\lim_{x\to a}\frac{\sqrt x -\sqrt a}{x-a}$\hfill(b)}
@@ -1132,8 +1155,10 @@ It is also reasonable to refer to removable, infinite or essential discontinuiti
 	  
 	  \item Suppose that $\lim\limits_{x\to\infty}f(x)=\lim\limits_{x\to\infty}g(x)=\infty$. Using \emph{only} this information, which of the following can you evaluate? Prove your assertions in each case.
 	  \begin{enumerate}
-	    \item \makebox[110pt][l]{$\lim\limits_{x\to\infty}(f+g)(x)$\hfill (b)}\space\space $\lim\limits_{x\to\infty}(f-g)(x)$
-	    \item[(c)] \makebox[110pt][l]{$\lim\limits_{x\to\infty}(fg)(x)$\hfill (d)}\space\space $\lim\limits_{x\to\infty}(f/g)(x)$
+	    \item $\lim\limits_{x\to\infty}(f+g)(x)$\qquad
+			(b) \ $\lim\limits_{x\to\infty}(f-g)(x)$\qquad
+			(c) \ $\lim\limits_{x\to\infty}(fg)(x)$\qquad
+			(d) \ $\lim\limits_{x\to\infty}(f/g)(x)$
 	  \end{enumerate}
 	  
 	  

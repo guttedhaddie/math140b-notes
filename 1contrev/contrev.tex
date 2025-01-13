@@ -140,7 +140,7 @@ Everything in this section \emph{should} be review.
 		\item[]\begin{enumerate}
 	  	\item (Limit method)\quad Let $x_n\to 2$. By the \emph{limit laws} (i.e. $\lim(x_n^k)=\left(\lim x_n\right)^k$),
 			\[
-				\lim_{x_n\to 2}f(x_n)=\lim_{x_n\to 2}x_n^3=\smash{\Bigl(\lim_{x_n\to 2}x_n\Bigr)^3}=2^3=f(2)
+				\lim f(x_n)=\lim x_n^3=\smash{\Bigl(\lim x_n\Bigr)^3}=2^3=f(2)
 			\]
 	  	\item ($\epsilon$--$\delta$ method)\quad Let $\epsilon>0$ be given and let $\displaystyle\delta=\smash{\min\left(1,\frac{\epsilon}{19}\right)}$.
 			\[
@@ -731,7 +731,7 @@ We now see that a function $f:I\to \R$ is uniformly continuous on a bounded inte
 		\]
 		is unbounded as is the domain. However, by breaking the domain into two pieces\ldots 
 		\begin{itemize}
-		  \item On $[1,\infty)$, the derivative is bounded: $\nm{f'(x)}\le 1+\frac 1{x^2}\le 2$ by the triangle inequality. Theorem \ref{thm:unifcontboundedslope} says $f$ is uniformly continuous on $[1,\infty)$.
+		  \item On $[1,\infty)$, the derivative is bounded: $\nm{f'(x)}\le 1+\frac 1{\nm x}\le 2$ by the triangle inequality. Theorem \ref{thm:unifcontboundedslope} says $f$ is uniformly continuous on $[1,\infty)$.
 		  \item $f$ is continuous on $(0,1]$ and, by the squeeze theorem
 		  \[
 		  	x_n\to 0^+\implies \lim f(x_n)=0

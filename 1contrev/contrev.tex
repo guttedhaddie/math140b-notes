@@ -350,18 +350,25 @@ Theses claims are tedious to prove using elementary definitions. In particular, 
 				0&\text{ if }x\not\in\Q
 			\end{cases}
 		\]
-	  For example, $f(1)=f(2)=f(-7)=1$, and $f(\tfrac 12)=f(-\tfrac 12)=f(\tfrac 32)=\cdots=\frac 12$, etc. Prove that $f$ is continuous at each point of $\R\setminus\Q$ and discontinuous at each point of $\Q$.
+	  For example, $f(1)=f(2)=f(-7)=1$, and $f(\tfrac 12)=f(-\tfrac 12)=f(\tfrac 32)=\cdots=\frac 12$, etc. Prove that $f$ is continuous at each point of $\R\setminus\Q$ and discontinuous at each point of $\Q$.\par
+	  (\emph{Hint: for continuity, consider $A=\{r\in\Q:f(r)\ge \frac 1q\}$ where $q\ge \frac 1\epsilon$\ldots})
 	\end{enumerate}
 \end{exercises}
 
 
 \footnotetext{%
-	This is a good moment to review the notion of a Cauchy sequence
+% 	This is a good moment to review the notion of a Cauchy sequence
+% 	\[
+% 		\forall \epsilon>0,\exists N$ such that $m,n>N
+% 		\implies \nm{x_m-x_n}<\epsilon
+% 	\]
+% 	and the discussion of Cauchy completeness: $(x_n)\subseteq\R$ is convergent if and only if it is Cauchy.%
+% 	
+	This is a good moment to review Cauchy completeness: that a sequence is convergent if and only if it is \emph{Cauchy}:
 	\[
 		\forall \epsilon>0,\exists N$ such that $m,n>N
 		\implies \nm{x_m-x_n}<\epsilon
 	\]
-	and the discussion of Cauchy completeness: $(x_n)\subseteq\R$ is convergent if and only if it is Cauchy.%
 }
 
 
@@ -683,7 +690,7 @@ Now we build towards a partial converse.
 	
 \goodbreak
 
-We now see that a function $f:I\to \R$ is uniformly continuous on a bounded interval if and only it is has a \emph{continuous extension} $g:\cl I\to\R$ defined on the closure of its domain.
+We now see that a function $f:I\to \R$ is uniformly continuous on a bounded interval if and only if it has a \emph{continuous extension} $g:\cl I\to\R$ defined on the closure of its domain.
 
 \begin{thm}{}{unifcontext}
 	Suppose $f:I\to\R$ is continuous where $I$ is a bounded interval with endpoints $a<b$. Define $g:[a,b]\to\R$ via
@@ -854,7 +861,7 @@ Loosely speaking, this means that if $(x_n)\subseteq\R\setminus\{3\}$ is a seque
   	\iff f(a)=
   	\begin{cases}
   		\lim\limits_{x\to a} f(x)&\text{when }a\in U^\circ\\
-  		\lim\limits_{x\to a^\pm} f(x)&\text{when }a\in U\setminus\partial U
+  		\lim\limits_{x\to a^\pm} f(x)&\text{when }a\in U\setminus U^\circ
   	\end{cases}
   	\tag{$\ast$}
  	\]
@@ -1128,11 +1135,8 @@ It is also reasonable to refer to removable, infinite or essential discontinuiti
 
 \begin{exercises}
 	\emph{Key concepts:\quad $\lim\limits_{x\to a}f(x)=L$,\quad $\epsilon,\delta,M,N$  versions,\quad Limit Laws,\quad Discontinuities}
-
-
-	%\exstart For the function $f(x)=\frac{x^3}{\nm x}$, determine the limits $\lim\limits_{x\to\infty}f(x)$, $\lim\limits_{x\to-\infty}f(x)$, $\lim\limits_{x\to 0^-}f(x)$, $\lim\limits_{x\to 0^+}f(x)$ and $\lim\limits_{x\to 0}f(x)$, if they exist.
 	
-	\begin{enumerate}\itemsep0pt%\setcounter{enumi}{1}\itemsep0pt 
+	\begin{enumerate}\itemsep0pt
 	  \item Given $f(x)=\frac{x^3}{\nm x}$, find $\lim\limits_{x\to\infty}f(x)$, $\lim\limits_{x\to-\infty}f(x)$, $\lim\limits_{x\to 0^-}f(x)$, $\lim\limits_{x\to 0^+}f(x)$ and $\lim\limits_{x\to 0}f(x)$, if they exist.
 	  
 	  \item Evaluate the following limits \emph{using the methods of this section}
@@ -1152,7 +1156,7 @@ It is also reasonable to refer to removable, infinite or essential discontinuiti
 	  \end{enumerate}
 	  
 	  
-	  \item Suppose that $\lim\limits_{x\to\infty}f(x)=\lim\limits_{x\to\infty}g(x)=\infty$. Using \emph{only} this information, which of the following can you evaluate? Prove your assertions in each case.
+	  \item Suppose that $\lim\limits_{x\to\infty}f(x)=\lim\limits_{x\to\infty}g(x)=\infty$. Using \emph{only} this information, which of the following can you \emph{always} evaluate? Prove your assertions in each case.
 	  \begin{enumerate}
 	    \item $\lim\limits_{x\to\infty}(f+g)(x)$\qquad
 			(b) \ $\lim\limits_{x\to\infty}(f-g)(x)$\qquad

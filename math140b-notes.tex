@@ -3,7 +3,8 @@
 \input{preamble-packages}
 \input{preamble-commands}
 
-% \def\nxrightarrow#1{\xrightarrow[#1]{\smash{\raisebox{-0.5em}{\tiny/}}}}
+\def\nxrightarrow#1{\xrightarrow[#1]{\smash{\raisebox{-0.5em}{\tiny/}}}}
+
 % \def\mesh{\operatorname{mesh}}
 % \def\squeezeeqn#1{\setlength{\abovedisplayskip}{#1}\setlength{\belowdisplayskip}{#1}}
 % \def\upint{\mathchoice%
@@ -15,8 +16,8 @@
 % \def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
 
 \includeonly{
-	1contrev/contrev,
-	%2series/series,
+	%1contrev/contrev,
+	2series/series,
 	%3diff/diff,
 	%4int/int,
 }

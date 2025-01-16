@@ -2,70 +2,92 @@
 
 \section{Sequences and Series of Functions}
 
-If $(f_n)$ is a sequence of functions, what should we mean by $\lim f_n$? This question is of great relevance to the history of calculus; Issac Newton's work in the late 1600's made great use of \emph{power series,} which are naturally constructed as limits of sequences of polynomials.\medbreak
+If $(f_n)$ is a sequence of functions, what should we mean by $\lim f_n$? This question is of huge relevance to the history of calculus: Issac Newton's work in the late 1600's made great use of \emph{power series,} which are naturally constructed as limits of sequences of polynomials.\medbreak
 For instance, for each $n\in\N_0$, we might consider the polynomial function $f_n:\R\to\R$ defined by
-\[f_n(x)=\sum_{k=0}^nx^k=1+x+\cdots+x^n\]
-This is easy to work with, to differentiate and integrate using the power law.
-What, however, are we to make of the following \emph{series}?
-\[f(x):=\sum_{n=0}^\infty x^n=1+x+x^2+\cdots\]
-Does this make sense? What is its domain? Does it equal the limit of the sequence $(f_n)$ in a meaningful way? Is it continuous, differentiable or integrable? Can we compute its limit/derivative/integral term-by-term in the obvious way; for instance, is it legitimate to write
-\[f'(x)=\sum_{n=1}^\infty nx^{n-1}=1+2x+3x^2+\cdots\text{?}\]
-To many in Newton's time, these questions were of diminished importance when compared to the burgeoning applications of calculus to the natural sciences. However, for the $18^\text{th}$ and $19^\text{th}$ century mathematicians who followed, the widespread application of calculus only increased the imperative to rigorously address these issues. 
+\[
+	f_n(x)=\sum_{k=0}^nx^k=1+x+\cdots+x^n
+\]
+This is easily differentiated and integrated using the power law. What, however, are we to make of the \emph{series}
+\[
+	f(x):=\sum_{n=0}^\infty x^n=1+x+x^2+\cdots\ \text{?}
+\]
+Does this make sense as a function? What is its domain? Does it equal the limit of the sequence $(f_n)$ in any meaningful way? Is it continuous, differentiable, integrable? If so, can we compute its derivative or integral term-by-term: for instance, is it legitimate to write
+\[
+	f'(x)=\sum_{n=1}^\infty nx^{n-1}=1+2x+3x^2+\cdots\ \text{?}
+\]
+To many in Newton's time, such technical questions were less important than the application of calculus to the natural sciences. For the 18\th{} and 19\th{} century mathematicians who followed, however, the widespread application of calculus only increased the imperative to rigorously address these issues. 
+
 
 \setcounter{subsection}{22}
 \subsection{Power Series}
 
-First we recall some of the important definitions, examples and results regarding infinite series.
+First we review some of the important definitions, examples and results concerning infinite series.
 
 \begin{defn}{}{}
-Let $(b_n)_{n=m}^\infty$ be a sequence of real numbers. The \emph{(infinite) series} $\sum b_n$ is the limit of the sequence $(s_n)$ of \emph{partial sums},
-\[s_n=\sum_{k=m}^nb_n=b_m+b_{m+1}+\cdots+b_n,\qquad \sum_{n=m}^\infty b_n=\lim_{n\to\infty}s_n\]
-The series $\sum b_n$ converges, diverges to infinity or diverges by oscillation\footnotemark if the sequence $(s_n)$ does so.\smallbreak
-$\sum b_n$ is \emph{absolutely convergent} if $\sum\nm{b_n}$ converges. A convergent series that is not absolutely convergent is \emph{conditionally convergent}.
+	Let $(b_n)_{n=m}^\infty$ be a sequence of real numbers. The \emph{(infinite) series} $\sum b_n$ is the limit of the sequence $(s_n)$ of \emph{partial sums},
+	\[
+		s_n=\sum_{k=m}^nb_n=b_m+b_{m+1}+\cdots+b_n,\qquad 
+		\sum_{n=m}^\infty b_n=\lim_{n\to\infty}s_n
+	\]
+	The series $\sum b_n$ is said to \emph{converge}, \emph{diverge to infinity} or \emph{diverge by oscillation\footnotemark} as does $(s_n)$.\smallbreak
+	$\sum b_n$ is \emph{absolutely convergent} if $\sum\nm{b_n}$ converges. A convergent series that is not absolutely convergent is \emph{conditionally convergent}.
 \end{defn}
 
-\footnotetext{Recall that every sequence $(s_n)$ has subsequences tending to each of 
-\[\limsup s_n=\lim_{N\to\infty}\sup\{x_n:n>N\}\quad\text{and}\quad \liminf s_n=\lim_{N\to\infty}\inf\{x_n:n>N\}\]
-If $(s_n)$ converges, or diverges to $\pm\infty$, then $\lim s_n=\limsup s_n=\liminf s_n$. The remaining case, divergence by oscillation, is when $\liminf s_n\neq\limsup s_n$: there exist (at least) two subsequences tending to different limits.}
+\footnotetext{%
+	Recall that every sequence $(s_n)$ has subsequences tending to each of 
+	\[
+		\limsup s_n=\lim_{N\to\infty}\sup\{x_n:n>N\}\quad\text{and}\quad 
+		\liminf s_n=\lim_{N\to\infty}\inf\{x_n:n>N\}
+	\]
+	If $(s_n)$ converges, or diverges to $\pm\infty$, then $\lim s_n=\limsup s_n=\liminf s_n$. The remaining case, divergence by oscillation, is when $\liminf s_n\neq\limsup s_n$: there exist (at least) two subsequences tending to different limits.
+}
+
 
 \goodbreak
 
 
 \begin{examples}{}{}
-These examples form the standard reference dictionary for analysis of more complex series. Make sure you are familiar with them!\textsuperscript{\ref{fn:seriesexs}}\vspace{-10pt}
-\addtocounter{footnote}{1}%\footnotemark[\value{footnote}]{}
-\begin{enumerate}\itemsep0pt
-  \item (Geometric series)\quad Let $r$ be a constant, then $s_n=\sum\limits_{k=0}^n r^k=\frac{1-r^{n+1}}{1-r}$.
-  It follows that
-  \[\sum_{n=0}^\infty r^n\  \begin{cases}
-  \text{converges (absolutely) to }\frac 1{1-r}&\text{if }-1<r<1\\
-  \text{diverges to }\infty&\text{if }r\ge 1\\
-  \text{diverges by oscillation}&\text{if }r\le -1
-  \end{cases}\]
-  \item (Telescoping series)\quad If $b_n=\frac 1{n(n+1)}$, then $s_n=\sum
- \limits_{k=1}^nb_n=1-\frac 1{n+1}\implies \sum\limits_{n=1}^\infty\frac 1{n(n+1)}=1$.
-  \item $\sum\limits_{n=1}^\infty \frac 1{n^2}$ is (absolutely) convergent. In fact $\sum\limits_{n=1}^\infty\frac 1{n^2}=\frac{\pi^2}6$, though checking this explicitly is tricky.
-  \item (Harmonic series)\quad $\sum\limits_{n=1}^\infty\frac 1n$ is divergent to $\infty$.
-	\item (Alternating harmonic series)\quad $\sum\limits_{n=1}^\infty \frac{(-1)^n}n$ is conditionally convergent.
-\end{enumerate}
+	These examples form the standard reference dictionary for analysis of more complicated series. Make sure they are familiar!\textsuperscript{\ref{fn:seriesexs}}\vspace{-10pt}
+	\addtocounter{footnote}{1}%\footnotemark[\value{footnote}]{}
+	\begin{enumerate}\itemsep0pt
+	  \item (Geometric series)\quad If $r$ is constant, then $s_n=\sum\limits_{k=0}^n r^k=\frac{1-r^{n+1}}{1-r}$.
+	  It follows that
+	  \[
+	  	\sum_{n=0}^\infty r^n\quad  
+	  	\begin{cases}
+	  		\text{converges (absolutely) to }\frac 1{1-r}&\text{if }-1<r<1\\
+	  		\text{diverges to }\infty&\text{if }r\ge 1\\
+	  		\text{diverges by oscillation}&\text{if }r\le -1
+	  	\end{cases}
+	  \]
+	  \item (Telescoping series)\quad If $b_n=\frac 1{n(n+1)}$, then $s_n=\sum\limits_{k=1}^nb_n =1-\frac 1{n+1}\implies \sum\limits_{n=1}^\infty\frac 1{n(n+1)}=1$.
+	  \item $\sum\limits_{n=1}^\infty \frac 1{n^2}$ is (absolutely) convergent. In fact $\sum\limits_{n=1}^\infty\frac 1{n^2}=\frac{\pi^2}6$, though checking this explicitly is tricky.
+	  \item (Harmonic series)\quad $\sum\limits_{n=1}^\infty\frac 1n$ is divergent to $\infty$.
+		\item (Alternating harmonic series)\quad $\sum\limits_{n=1}^\infty \frac{(-1)^n}n$ is conditionally convergent.
+	\end{enumerate}
 \end{examples}
 
 
 \footnotetext[\value{footnote}]{\label{fn:seriesexs}
-We give sketch proofs, and/or refer you to a standard `test.' Review these if you are unfamiliar.
-\begin{enumerate}
-  \item $s_n-rs_n=1+r+\cdots+r^n-(r+\cdots +r^n+r^{n+1})=1-r^{n+1}\implies s_n=\frac{1-r^{n+1}}{1-r}$.
-  \item $b_n=\frac 1n-\frac 1{n+1}\implies s_n=\left(1-\frac 12\right)+\left(\frac 12-\frac 13\right)+\cdots+\left(\frac 1n-\frac 1{n+1}\right)=1-\frac 1{n+1}$.
-  \item Use the comparison or integral tests. Alternatively: For each $n\ge 2$, we have $\frac 1{n^2}<\frac 1{n(n-1)}$. By part 2,
-  \[s_n=\sum_{k=1}^n\frac 1{k^2}<1+\sum_{k=1}^n\frac 1{k(k-1)}\le 2\]
-  Since $(s_n)$ is a monotone up sequence, bounded above by 2, we conclude that $\sum\frac 1{n^2}$ is convergent.
-  \item Use the integral test. Alternatively, observe that
-  \[s_{2^{n+1}}-s_{2^n}=\sum_{k=2^n-1}^{2^{n+1}}\frac 1k\ge\frac{2^n}{2^{n+1}}=\frac 12 \implies s_{2^n}\ge\frac n2\xrightarrow[n\to\infty]{}\infty\]
-  Since $s_n=\sum\limits_{k=1}^n\frac 1k$ defines an increasing sequence we conclude that $s_n\to\infty$.
-  \item Use the alternating series test, or explicitly check that both the even and odd partial sums $(s_{2n})$ and $(s_{2n+1})$ are convergent (monotone and bounded) to the same limit.
-\end{enumerate}
-Root Test: $\beta<1\implies\exists \epsilon>0$ such that $\nm{b_n}^{1/n}\le 1-\epsilon$ (for large $n$) $\implies\sum\nm{b_n}$ converges by comparison with the convergent geometric series $\sum(1-\epsilon)^n$.\smallbreak
-$\beta>1\implies$ a subsequence of $(\nm{b_n}^{1/n})$ converges to $\beta>1$, whence $b_n\nrightarrow 0\implies \sum b_n$ diverges ($n$\th-term test).}
+	We give sketch proofs or refer to a standard `test.' Review these if you are unfamiliar.
+	\begin{enumerate}
+	  \item $s_n-rs_n=1+r+\cdots+r^n-(r+\cdots +r^n+r^{n+1})=1-r^{n+1}\Longrightarrow s_n=\frac{1-r^{n+1}}{1-r}$.
+	  \item By partial fractions, $b_n=\frac 1n-\frac 1{n+1}\Longrightarrow s_n=\left(1-\frac 12\right)+\left(\frac 12-\frac 13\right)+\cdots+\left(\frac 1n-\frac 1{n+1}\right)=1-\frac 1{n+1}$.
+	  \item Use the comparison or integral tests. Alternatively: For each $n\ge 2$, we have $\frac 1{n^2}<\frac 1{n(n-1)}$. By part 2,
+	  \[
+	  	s_n=\sum_{k=1}^n\frac 1{k^2}<1+\sum_{k=1}^n\frac 1{k(k-1)}<1+\sum_{n=1}^\infty\frac 1{n(n-1)}=2
+	  \]
+	  Since $(s_n)$ is monotone-up and bounded above by 2, we conclude that $\sum\frac 1{n^2}$ is convergent.
+	  \item Use the integral test. Alternatively, observe that
+	  \[
+	  	s_{2^{n+1}}-s_{2^n}=\sum_{k=2^n-1}^{2^{n+1}}\frac 1k\ge\frac{2^n}{2^{n+1}}=\frac 12 \Longrightarrow s_{2^n}\ge\frac n2\xrightarrow[n\to\infty]{}\infty
+	  \]
+	  Since $s_n=\sum\limits_{k=1}^n\frac 1k$ is monotone-up, we conclude that $s_n\to\infty$.
+	  \item Use the alternating series test, or explicitly check that both the even and odd partial sums $(s_{2n})$ and $(s_{2n+1})$ are convergent (monotone and bounded) to the same limit (essentially the proof of the alternating series test).
+	\end{enumerate}
+	Root Test: $\beta<1\Longrightarrow\exists \epsilon>0$ such that $\nm{b_n}^{1/n}\le 1-\epsilon$ (for large $n$) $\Longrightarrow\sum\nm{b_n}$ converges by comparison with $\sum(1-\epsilon)^n$.\smallbreak
+	$\beta>1\Longrightarrow$ some subsequence of $(\nm{b_n}^{1/n})$ converges to $\beta>1\Longrightarrow b_n\nrightarrow 0\Longrightarrow \sum b_n$ diverges ($n$\th-term test).
+}
 
 % \begin{thm}{Comparison Test/Absolute Convergence}{}
 % Suppose $\nm{b_n}\le a_n$ for all large $n$. Then
@@ -77,234 +99,283 @@ $\beta>1\implies$ a subsequence of $(\nm{b_n}^{1/n})$ converges to $\beta>1$, wh
 
 
 \begin{thm}{Root Test}{roottest}
-Given a series $\sum b_n$, let $\beta=\limsup\nm{b_n}^{1/n}$,
-\begin{itemize}\itemsep0pt
-  \item If $\beta<1$ then the series converges absolutely.
-  \item If $\beta>1$ then the series diverges.
-\end{itemize}
-\end{thm}\goodbreak
-
-
-% \begin{proof}
-% If $\beta<1$, then, for large $n$, $\exists \epsilon>0$ such that $\nm{b_n}^{1/n}\le 1-\epsilon$. But then $\sum b_n$ converges by comparison with the convergent geometric series $\sum (1-\epsilon)^n$.\\
-% If $\beta>1$, then a subsequence of $(\nm{b_n}^{1/n})$ converges to $\beta>1$, whence $(b_n)$ does not converge to zero. By the $n^\text{th}$-term/divergence test, the series $\sum b_n$ diverges.
-% \end{proof}
-
-The root test is inconclusive if $\beta=1$. Some simple inequalities\footnote{$\liminf\nm{\frac{b_{n+1}}{b_n}}\le \liminf\nm{b_n}^{1/n}\le \limsup\nm{b_n}^{1/n} \le\limsup\nm{\frac{b_{n+1}}{b_n}}$} yield a simpler test.
-
-\begin{cor}{Ratio Test}{ratiotest}
-Given a series $\sum b_n$,
-\begin{itemize}\itemsep0pt
-  \item If $\limsup\nm{\frac{b_{n+1}}{b_n}}<1$ then $\sum b_n$ converges absolutely.
-  \item If $\liminf\nm{\frac{b_{n+1}}{b_n}}>1$ then $\sum b_n$ diverges.
-\end{itemize}
-\end{cor}
-
-We can now properly define and analyze our main objects of interest.
-
-\begin{defn}{}{}
-A \emph{power series centered at $c\in\R$} is a formal expression
-\[\sum_{n=m}^\infty a_n(x-c)^n\]
-where $(a_n)_{n=m}^\infty$ is a sequence of real numbers and $x$ is considered a variable.
-\end{defn}
-
-It is common to refer simply to a \emph{series}, and modify by infinite/power when clarity requires. We almost always have $m=0$ or 1, and it is common for examples to be centered at $c=0$.
-
-
-\begin{example}{}{ps1}
-Using the geometric series formula, we see that
-\begin{gather*}\label{ex:bob}
-\textcolor{blue}{\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(x-4)^n}=\frac 1{1-\frac{-(x-4)}2} =\textcolor{Green}{\frac 2{x-2}} \quad
-\text{whenever}\quad\nm{-\frac{x-4}2}<1\iff 2<x<6
-\end{gather*}
-\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
-The \textcolor{blue}{series} is valid (converges) only on a small subinterval of the implied domain of the \textcolor{Green}{function} $x\mapsto \frac 2{x-2}$. The behavior of both as $x\to 2^+$ should not be a surprise; evaluating the power series results in the divergent infinite series
-\[\sum 1=+\infty\]
-By contrast, as $x\to 6^-$, we see that limits and infinite series do not interact the way we might expect,
-\begin{gather*}
-\lim\limits_{x\to 6^-}\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(x-4)^n=\lim\limits_{x\to 6^-}\frac 2{x-2}=\frac 12\\
-\sum_{n=0}^\infty \lim\limits_{x\to 6^-}\frac{(-1)^n}{2^n}(x-4)^n =\sum (-1)^n =\text{DNE}
-\end{gather*}
-with the last divergent by oscillation.
-\end{minipage}\begin{minipage}[t]{0.4\linewidth}\vspace{0pt}
-\flushright\includegraphics{powerseriesex}
-\end{minipage}
-\end{example}
-
-As the example shows, we cannot take limits inside an infinite sum; understanding when we can do this is one of our primary goals. 
+	Given a series $\sum b_n$, let $\beta=\limsup\nm{b_n}^{1/n}$,
+	\begin{itemize}%\itemsep0pt
+	  \item If $\beta<1$ then the series converges absolutely.
+	  \item If $\beta>1$ then the series diverges.
+	\end{itemize}
+\end{thm}
 
 \goodbreak
 
-% While understanding when a  goal of this course is not to evaluate sums of power series, or even to establish their interval of convergence. We have more general questions:
-% \begin{enumerate}
-%   \item When, and on what domain, does a given function $f$ equal a power series?
-%   \item If a function equals a power series $f(x)=\sum_{n=0}^\infty a_n(x-c)^n$, how accurate is a given polynomial estimate $\sum_{k=0}^n a_k(x-c)^k$?
-%   \item Are power series continuous, differentiable, integrable, and can we compute limits, derivatives and integrals in the obvious, term-by-term, manner?
-% \end{enumerate}
-% For instance, in the example on \pageref{ex:bob} we see that we can evaluate limits by interchanging the order of limit and infinite sum
-% \[\lim\limits_{x\to a}\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(x-4)^n =\lim\limits_{x\to a}\frac 2{x-2}=\frac 2{a-2} =\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(a-4)^n =\sum_{n=0}^\infty \lim\limits_{x\to a}\frac{(-1)^n}{2^n}(x-4)^n\]
-% but \emph{only} when $2<a<6$; if we try to do this as $x\to 6^-$ (at an \emph{endpoint} of the interval of convergence), the result is false. One of our purposes is to show that this interchangability, and the caveat regarding endpoints, is true in general, for limits, derivatives and integrals.
+
+The root test is inconclusive if $\beta=1$. Some simple inequalities\footnote{%
+	You should have encountered these previously: $\liminf\nm{\frac{b_{n+1}}{b_n}}\le \liminf\nm{b_n}^{1/n}\le \limsup\nm{b_n}^{1/n} \le\limsup\nm{\frac{b_{n+1}}{b_n}}$%
+}
+yield a test that is often easier to apply.
+
+\begin{cor}{Ratio Test}{ratiotest}
+	Given a series $\sum b_n$:
+	\begin{itemize}\itemsep0pt
+	  \item If $\limsup\nm{\frac{b_{n+1}}{b_n}}<1$ then $\sum b_n$ converges absolutely.
+	  \item If $\liminf\nm{\frac{b_{n+1}}{b_n}}>1$ then $\sum b_n$ diverges.
+	\end{itemize}
+\end{cor}
+
+We are now ready to properly define and analyze our main objects of interest.
+
+\begin{defn}{}{}
+	A \emph{power series centered at $c\in\R$} with \emph{coefficients} $a_n\in\R$ is a formal expression
+	\[
+		\sum_{n=m}^\infty a_n(x-c)^n
+	\]
+	where $x\in\R$ is considered a variable. A power series is a \emph{function} whose implied domain is the set of $x$ for which the resulting infinite series converges. 
+\end{defn}
+
+It is common to refer simply to a \emph{series}, and modify by infinite/power only when clarity requires. Almost always $m=0$ or 1, and it is common for examples to be centered at $c=0$.
 
 
-\subsubsection*{Radius and Interval of Convergence}
+\begin{example}{}{ps1}
+	By the geometric series formula,
+	\begin{gather*}\label{ex:bob}
+		\textcolor{blue}{\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(x-4)^n}=\frac 1{1-\frac{-(x-4)}2} 
+		=\textcolor{Green}{\frac 2{x-2}} \quad
+		\text{whenever}\quad\nm{-\frac{x-4}2}<1\iff 2<x<6
+	\end{gather*}
+	\begin{minipage}[t]{0.62\linewidth}\vspace{0pt}
+	The \textcolor{blue}{series} is valid (converges) only on the subinterval $(2,6)$ of the implied domain of the \textcolor{Green}{function} $x\mapsto \frac 2{x-2}$.\par
+	The behavior as $x\to 2^+$ is unsurprising, since evaluating the power series results in the divergent infinite series
+	\[
+		\sum 1=+\infty
+	\]
+	By contrast, as $x\to 6^-$ we see that limits and infinite series do not interact as we might expect,
+	\begin{gather*}
+		\lim\limits_{x\to 6^-}\sum_{n=0}^\infty \frac{(-1)^n}{2^n}(x-4)^n=\lim\limits_{x\to 6^-}\frac 2{x-2}=\frac 12\\
+		\sum_{n=0}^\infty \lim\limits_{x\to 6^-}\frac{(-1)^n}{2^n}(x-4)^n =\sum (-1)^n =\text{DNE}
+	\end{gather*}
+	with the last series being divergent by oscillation.
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.37\linewidth}\vspace{0pt}
+		\flushright\includegraphics[scale=0.95]{powerseriesex}
+	\end{minipage}
+\end{example}
 
-At any real number $x$, a series may converge absolutely, converge conditionally, diverge to $\pm\infty$, or diverge by oscillation. A series defines a \emph{function} whose implied domain is the set on which the series converges. In the previous example, the domain was an \emph{interval} $(2,6)$. By applying the root test (Theorem \ref{thm:roottest}), we can show that this holds for \emph{every} series.
+The example shows that we cannot blindly take limits inside an infinite sum; understanding precisely when this is possible is one of our primary goals. 
+
+
+\goodbreak
+
+
+\boldsubsubsection{Radius and Interval of Convergence}
+
+The implied domain of the series in Example \ref{ex:ps1} turned out to be an \emph{interval} $(2,6)$. Somewhat amazingly, the root test (Theorem \ref{thm:roottest}) shows that the same is true for \emph{every} power series!
 
 \begin{thm}{Root Test for Power Series}{seriesconv}
-Given a series \smash[b]{$\sum\limits_{n=0}^\infty a_n(x-c)^n$,} define\footnotemark
-\[R=\frac 1{\limsup\nm{a_n}^{1/n}}\]
-Exactly one of the following is true:
-\[\begin{array}{ll}
-R=\infty&\text{the series converges absolutely for all $x\in\R$}\\[5pt]
-R=0&\text{the series converges only when $x=c$}\\[5pt]
-R\in\R^+&\text{the series converges absolutely when $\nm{x-c}<R$ and diverges when $\nm{x-c}>R$}
-\end{array}\]
-% \begin{itemize}
-%   \item[]$R=\infty$; the series converges absolutely for all $x\in\R$.
-%   \item $R=0$; the series converges only when $x=c$.
-%   \item $R\in\R^+$; the series converges absolutely when $\nm{x-c}<R$ and diverges when $\nm{x-c}>R$.
-% \end{itemize}
+	Given a power series \smash[b]{$\sum a_n(x-c)^n$,} define\footnotemark
+	\[
+		R=\frac 1{\limsup\nm{a_n}^{1/n}}
+	\]
+	The precisely one of the following statements holds:
+	\[
+		\begin{array}{@{}ll}
+			R\in(0,\infty)&\text{the series converges absolutely when $\nm{x-c}<R$ and diverges when $\nm{x-c}>R$}\\[5pt]
+			R=\infty&\text{the series converges absolutely for all $x\in\R$}\\[5pt]
+			R=0&\text{the series converges only at the center $x=c$}
+		\end{array}
+	\]
 \end{thm}
 
-\footnotetext{Since $\nm{a_n}\ge 0$, we here adopt the convention that $\frac 10=\infty$ and $\frac 1\infty=0$. With similar caveats, it is also reasonable to write $R=\liminf\nm{a_n}^{-1/n}$.}
+\footnotetext{%
+	Since $\nm{a_n}\ge 0$, we here adopt the conventions $\frac 10=\infty$, $\frac 1\infty=0$. With similar caveats, one can write $R=\liminf\nm{a_n}^{-1/n}$. Since every sequence has a limit superior, this really is a \emph{definition.} Whether one can easily \emph{compute} $R$ is another matter\ldots%
+}
 
 \begin{proof}
-For each fixed $x\in\R$, let $b_n=a_n(x-c)^n$ and apply the root test to $\sum b_n$, noting that
-\begin{gather*}
-\limsup\nm{b_n}^{1/n}=\begin{cases}
-0&\text{if }x=c\text{ or }R=\infty\\
-\infty&\text{if }x\neq c\text{ and }R=0\\
-\limsup\nm{a_n}^{1/n}\nm{x-c}=\frac 1R\nm{x-c}&\text{ otherwise}
-\end{cases}%\\[-20pt]
-%\phantom{bob}\tag*{\qedhere}
-\end{gather*}
-In the final situation, $\limsup\nm{b_n}^{1/n}<1\iff \nm{x-c}<R$, etc.
+	For each fixed $x\in\R$, let $b_n=a_n(x-c)^n$ and apply the root test to $\sum b_n$, noting that
+	\begin{gather*}
+		\limsup\nm{b_n}^{1/n}=
+		\begin{cases}
+			\limsup\nm{a_n}^{1/n}\nm{x-c}=\frac 1R\nm{x-c}&\text{if $R\in(0,\infty)$}\\
+			0&\text{if }R=\infty\text{ or }x=c\\
+			\infty&\text{if }R=0\text{ and }x\neq c
+		\end{cases}
+	\end{gather*}
+	In the first situation, $\limsup\nm{b_n}^{1/n}<1\iff \nm{x-c}<R$, etc.
 \end{proof}
 
 \begin{defn}{}{}
-The \emph{radius of convergence} is the value $R$ defined in Theorem \ref{thm:seriesconv}. The \emph{interval of convergence} is the set of values $x$ for which the series converges; the implied domain.
-\[\begin{array}{c|c}
-\text{Radius of convergence}&\text{Interval of convergence}\\\hline\hline
-\infty&\R=(-\infty,\infty)\\
-0&\{c\}\\
-R&(c-R,c+R),\ (c-R,c+R],\ [c-R,c+R),\ \text{or }[c-R,c+R]
-\end{array}\]
-In the third case convergence/divergence at the endpoints of the interval of convergence must be tested separately.
+	The \emph{radius of convergence} is the value $R$ defined in Theorem \ref{thm:seriesconv}. The \emph{interval of convergence} is the set of $x\in\R$ for which the series converges; its implied domain.
+	\[
+		\begin{array}{c|c}
+			\text{Radius of convergence}&\text{Interval of convergence}\\\hline\hline
+			R\neq 0,\infty&(c-R,c+R),\ (c-R,c+R],\ [c-R,c+R)\ \text{or }[c-R,c+R]\\
+			\infty&\R=(-\infty,\infty)\\
+			0&\{c\}
+		\end{array}
+	\]
+	In the first case, convergence/divergence at the endpoints of the interval of convergence must be tested for separately.
 \end{defn}
 
-By applying Corollary \ref{cor:ratiotest}, we obtain a more user-friendly result.
+The ratio test (Corollary \ref{cor:ratiotest}) provides a more user-friendly version.
 
 \begin{cor}{Ratio Test for Power Series}{ratiops}
-If the limit exists, $R=\lim\limits_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}$.
-\end{cor}\goodbreak
+	If the limit exists, $R=\lim\limits_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}$.
+\end{cor}
+
+The ratio test is \emph{weaker} than the root test: as Example \ref*{ex:easyintconv}.\ref{ex:easyintconv2} shows, there exist series for which the ratio test is be inconclusive.
+
+\goodbreak
 
 
 \begin{examples}{}{easyintconv}
-\exstart The series $\sum\limits_{n=1}^\infty \frac 1nx^n$ is centered at $0$. The ratio test tells us that
-\begin{enumerate}\setcounter{enumi}{1}\itemsep1pt
-  \begin{minipage}[t]{0.65\linewidth}\vspace{-15pt}
-  \item[]
-  \[R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}=\lim_{n\to\infty}\frac{1/n}{1/(n+1)} =\lim_{n\to\infty}\frac{n+1}{n}=1\]
-  Test the endpoints of the interval of convergence separately:
-  \[\begin{array}{ll}
-  x=1&\sum \frac 1n=\infty\text{ diverges}\\[5pt]
-  x=-1&\sum \frac{(-1)^n}n\text{ converges (conditionally)}
-  \end{array}\]
-  We conclude that the interval of convergence is $[-1,1)$.\medbreak
-  It can be seen that the series converges to \textcolor{Green}{$-\ln(1-x)$} on its interval of convergence. As in Example \ref{ex:ps1}, this function has a larger domain $(-\infty,-1)$, than that of the \textcolor{blue}{series}.
-	\end{minipage}\begin{minipage}[t]{0.35\linewidth}\vspace{0pt}
-	\flushright\includegraphics{powerseriesex2}
-	\end{minipage}
+	\exstart The series $\sum_{n=1}^\infty \frac 1nx^n$ is centered at $0$. The ratio test tells us that
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \begin{minipage}[t]{0.65\linewidth}\vspace{-15pt}
+	  \item[]
+	  \[
+	  	R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}
+	  	=\lim_{n\to\infty}\frac{1/n}{1/(n+1)} 
+	  	=\lim_{n\to\infty}\frac{n+1}{n}=1
+	  \]
+	  Test the endpoints of the interval of convergence separately:
+	  \[
+	  	\begin{array}{ll}
+	  		x=1&\sum \frac 1n=\infty\text{ diverges}\\[5pt]
+	  		x=-1&\sum \frac{(-1)^n}n\text{ converges (conditionally)}
+	  	\end{array}
+	  \]
+	  We conclude that the interval of convergence is $[-1,1)$.\medbreak
+	  It can be seen (later) that the series converges to \textcolor{Green}{$-\ln(1-x)$} on its interval of convergence. As in Example \ref{ex:ps1}, this function has a larger domain $(-\infty,-1)$, than that of the \textcolor{blue}{series}.
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}
+			\flushright\includegraphics[scale=0.95]{powerseriesex2}
+		\end{minipage}
+		
+		
+	  \item The series $\sum_{n=1}^\infty\frac 1{n^2}x^n$ similarly has
+	  \[
+	  	R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}
+	  	=\lim_{n\to\infty}\frac{(n+1)^2}{n^2}=1
+	  \]
+		Since $\sum \frac 1{n^2}$ is absolutely convergent, we conclude that the power series also converges absolutely at $x=\pm 
+		1$; the interval of convergence is $[-1,1]$.
 	
-  \item The series $\sum\limits_{n=1}^\infty\frac 1{n^2}x^n$ similarly has
-  \[R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}=\lim_{n\to\infty}\frac{(n+1)^2}{n^2}=1\]
-	Since $\sum \frac 1{n^2}$ is absolutely convergent, we conclude that the power series also converges absolutely at $x=\pm 1$; the interval of convergence is $[-1,1]$.
+		\item The series $\sum_{n=0}^\infty \frac 1{n!}x^n$ converges absolutely for all $x\in\R$, since
+	  \[
+	  	R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}
+	  	=\lim_{n\to\infty}\frac{(n+1)!}{n!}
+	  	=\lim_{n\to\infty}(n+1)=\infty
+	  \]
+	  You should recall from elementary calculus that this series converges to the natural exponential function $\exp(x)=e^x$ everywhere on $\R$; indeed this is one of the common \emph{definitions} of the exponential function.
+	
+	
+		\item The series $\sum_{n=0}^\infty n!x^n$ has $R=\lim\frac{n!}{(n+1)!}=0$. It therefore converges only at its center $x=0$.
+	
+	
+		\item\label{ex:easyintconv2} Let $a_n=\left(\frac 23\right)^n$ if $n$ is even and $\left(\frac 32\right)^n$ if $n$ is odd. If we try to apply the ratio test to the series $\sum_{n=0}^\infty a_nx^n$, we see that
+		\[
+			\nm{\frac{a_n}{a_{n+1}}}=
+			\begin{cases}
+				\left(\frac 23\right)^{2n+1}&\text{if $n$ even}\\
+				\left(\frac 32\right)^{2n+1}&\text{if $n$ odd}
+			\end{cases}
+			\implies \limsup\nm{\frac{a_n}{a_{n+1}}}
+			=\infty\neq 0=\liminf\nm{\frac{a_n}{a_{n+1}}}
+		\]
+		The ratio test is therefore inconclusive. However, by the root test,
+		\[
+			\nm{a_n}^{1/n}=
+			\begin{cases}
+				\frac 23&\text{if $n$ even}\\
+				\frac 32&\text{if $n$ odd}
+			\end{cases}\ 
+			\implies R=\frac 1{\limsup\nm{a_n}^{1/n}}=\frac 1{3/2}=\frac 23
+		\]
+		It is easy to check that the series diverges at $x=\pm\frac 23$; the interval of convergence is $(-\frac 23,\frac 23)$.
+	\end{enumerate}
+\end{examples}
+\goodbreak
 
-	\item The series $\sum\limits_{n=0}^\infty \frac 1{n!}x^n$ converges absolutely for all $x\in\R$, since
-  \[R=\lim_{n\to\infty}\nm{\frac{a_n}{a_{n+1}}}=\lim_{n\to\infty}\frac{(n+1)!}{n!}=\lim_{n\to\infty}(n+1)=\infty\]
-  You should recall from elementary calculus that this series converges to the natural exponential function $\exp(x)=e^x$ everywhere on $\R$; indeed this is one of the common \emph{definitions} of the exponential!
+With the help of the root test the domain of a power series is fully understood. Limits, continuity, differentiability and integrability are more delicate. We will return to these once we've developed some of the ideas around \emph{convergence} for \emph{sequences of functions.}
 
-	\item The series $\sum\limits_{n=0}^\infty n!x^n$ has $R=0$, and thus only converges at its center $x=0$.
-
-	\item\label{ex:easyintconv2} Let $a_n=\left(\frac 23\right)^n$ if $n$ is even and $\left(\frac 32\right)^n$ if $n$ is odd. If we try to apply the ratio test to the series $\sum\limits_{n=0}^\infty a_nx^n$, we see that
-	\[\nm{\frac{a_n}{a_{n+1}}}=
-	\begin{cases}
-	\left(\frac 23\right)^{2n+1}&\text{if $n$ even}\\
-	\left(\frac 32\right)^{2n+1}&\text{if $n$ odd}
-	\end{cases} \implies \limsup\nm{\frac{a_n}{a_{n+1}}}=\infty\neq 0=\liminf\nm{\frac{a_n}{a_{n+1}}}\]
-	The ratio test therefore fails. However, by the root test,
-	\[\nm{a_n}^{1/n}=\begin{cases}
-	\frac 23&\text{if $n$ even}\\
-	\frac 32&\text{if $n$ odd}
-	\end{cases}\ \implies R=\frac 1{\limsup\nm{a_n}^{1/n}}=\frac 1{3/2}=\frac 23\]
-	It is easy to check that the series diverges at $x=\pm\frac 23$; the interval of convergence is $(-\frac 23,\frac 23)$.
-\end{enumerate}
-\end{examples}\goodbreak
-
-With the help of the root test, we can understand the domain of a power series. The issues of limits, continuity, differentiability and integrability are more delicate. We will return to these once we've developed some of the ideas around \emph{convergence} for \emph{sequences of functions.}
+\goodbreak
 
 \begin{exercises}
-\exstart For each power series, find the radius and interval of convergence:\vspace{0pt}
-\begin{enumerate}\setcounter{enumi}{1}
-	\item[]\begin{enumerate}
-	  \item \makebox[120pt][l]{$\displaystyle\sum\frac{(-1)^n}{n^24^n}x^n$\hfill(b)}
-		\space \makebox[140pt][l]{$\displaystyle\sum\frac{(n+1)^2}{n^3}(x-3)^n$\hfill(c)}
-		\space $\displaystyle\sum\sqrt nx^n$
-		\item[(d)] \makebox[120pt][l]{$\displaystyle\sum\frac{1}{n^{\sqrt n}}(x+7)^n$\hfill(e)}
-		\space \makebox[140pt][l]{$\displaystyle\sum (x-\pi)^{n!}$\hfill(f)}
-		\space $\displaystyle\sum\frac{3^n}{\sqrt n}x^{2n+1}$
-	\end{enumerate}
-  
-  \item For each $n\in\N$ let $a_n=\left(\frac{4+2(-1)^n}{5}\right)^n$
-  \begin{enumerate}
-    \item Find $\limsup\nm{a_n}^{1/n}$, $\liminf\nm{a_n}^{1/n}$, $\limsup\nm{\frac{a_{n+1}}{a_n}}$ and $\liminf\nm{\frac{a_{n+1}}{a_n}}$.
-    \item Do the series $\sum a_n$ and $\sum (-1)^na_n$ converge? Why?
-    \item Find the interval of convergence of the power series $\sum a_nx^n$.
-  \end{enumerate}
-  
-  \item Suppose that $\sum a_nx^n$ has radius of convergence $R$. If $\limsup\nm{a_n}>0$, prove that $R\le 1$.
-  
-  \item On the interval $(-\frac 23,\frac 23)$, express the series in Example \hyperref[ex:easyintconv2]{\ref*{ex:easyintconv}.\ref*{ex:easyintconv2}} as a simple function.\smallbreak
-  (\emph{Hints: Use geometric series formulæ and the fact that the value of an absolutely convergent series is independent of rearrangements}) 
-  
-	\item Consider the power series
-	\[\sum_{n=1}^\infty \frac{1}{3^nn}(x-7)^{5n+1} =\frac 13(x-7)+\frac 1{18}(x-7)^6+\frac 1{81}(x-7)^{11}+\cdots \]
-	Since only one in five of the terms are non-zero, it is a little tricky to analyze using a naïve application of our standard tests.
-	\begin{enumerate}
-	  \item Explain why the ratio test for power series (Corollary \ref{cor:ratiops}) does not apply.
-	  
-	  \item Writing the series as $\sum a_m(x-7)^m$, observe that
-	  \begin{gather*}
-		a_m=\begin{cases}
-		\frac 5{3^{\frac{m-1}5}(m-1)}&\text{if $m\equiv 1\mod 5$}\\
-		0&\text{otherwise}
-		\end{cases}%\\
-		%\implies \limsup\nm{a_m}^{1/m} = \lim\frac{5^{1/m}}{3^{\frac 15-\frac 1{5m}}(m-1)^{1/m}} =3^{-1/5} \implies R=\sqrt[5]{3}
-		\end{gather*}
-	  Use the root test (Theorem \ref{thm:seriesconv}) and your understanding of elementary limits to directly compute the radius of convergence.
-	  
-	  \item Alternatively, write $\sum \frac{1}{3^nn}(x-7)^{5n+1}=\sum b_n$. Apply the ratio test for \emph{infinite} series (Corollary \ref{cor:ratiotest}): what do you observe? Use your observation to compute the radius of convergence of the original series in a simpler manner than part (a).
-	  
-	  \item Finally, check the endpoints to determine the interval of convergence.
-	\end{enumerate}
+	\emph{Key concepts:\quad Power Series,\quad Radius/interval of convergence $R=\frac 1{\limsup\nm{a_n}^{1/n}}$}
 	
-	%\item Find the interval of convergence of the series $\sum 2^n(2x-1)^{2n}$
-\end{enumerate}
+	\begin{enumerate}
+		\item For each power series, find the radius and interval of convergence:
+		\begin{enumerate}
+		  \item \makebox[120pt][l]{$\displaystyle\sum\frac{(-1)^n}{n^24^n}x^n$\hfill(b) }\
+			\makebox[140pt][l]{$\displaystyle\sum\frac{(n+1)^2}{n^3}(x-3)^n$\hfill(c) }\
+			$\displaystyle\sum\sqrt nx^n$
+			\item[(d)] \makebox[120pt][l]{$\displaystyle\sum\frac{1}{n^{\sqrt n}}(x+7)^n$\hfill(e) }\
+			\makebox[140pt][l]{$\displaystyle\sum (x-\pi)^{n!}$\hfill(f) }\
+			$\displaystyle\sum\frac{3^n}{\sqrt n}x^{2n+1}$
+		\end{enumerate}
+	  
+	  
+	  \item For each $n\in\N$ let $a_n=\left(\frac{4+2(-1)^n}{5}\right)^n$
+	  \begin{enumerate}
+	    \item Find $\limsup\nm{a_n}^{1/n}$, $\liminf\nm{a_n}^{1/n}$, $\limsup\nm{\frac{a_{n+1}}{a_n}}$ and $\liminf\nm{\frac{a_{n+1}}{a_n}}$.
+	    \item Does the series $\sum a_n$ converge? What about $\sum (-1)^na_n$? Why?
+	    \item Find the interval of convergence of the power series $\sum a_nx^n$.
+	  \end{enumerate}
+	  
+	  
+	  \item Suppose that $\sum a_nx^n$ has radius of convergence $R$. If $\limsup\nm{a_n}>0$, prove that $R\le 1$.
+	  
+	  
+	  \item On the interval $(-\frac 23,\frac 23)$, express the series in Example \ref*{ex:easyintconv}.\ref{ex:easyintconv2} as a simple function.\par
+	  (\emph{Hints: Use geometric series formulæ and the fact that the value of an absolutely convergent series is independent of rearrangements}) 
+	  
+	  
+		\item Consider the power series
+		\[
+			\sum_{n=1}^\infty \frac{1}{3^nn}(x-7)^{5n+1} 
+			=\frac 13(x-7)+\frac 1{18}(x-7)^6+\frac 1{81}(x-7)^{11}+\cdots 
+		\]
+		Since only one in five of the terms are non-zero, it is a little tricky to analyze using a naïve application of our standard tests.
+		\begin{enumerate}
+		  \item Explain why the ratio test for power series (Corollary \ref{cor:ratiops}) does not apply.
+		  
+		  \item Writing the series as $\sum a_m(x-7)^m$, observe that
+		  \begin{gather*}
+				a_m=\begin{cases}
+				\frac 5{3^{\frac{m-1}5}(m-1)}&\text{if $m\equiv 1\mod 5$}\\
+				0&\text{otherwise}
+			\end{cases}%\\
+			%\implies \limsup\nm{a_m}^{1/m} = \lim\frac{5^{1/m}}{3^{\frac 15-\frac 1{5m}}(m-1)^{1/m}} =3^{-1/5} \implies R=\sqrt[5]{3}
+			\end{gather*}
+		  Use the root test (Theorem \ref{thm:seriesconv}) and your understanding of elementary limits to directly compute the radius of convergence.
+		  
+		  \item Alternatively, write $\sum \frac{1}{3^nn}(x-7)^{5n+1}=\sum b_n$. Apply the ratio test for \emph{infinite} series (Corollary \ref{cor:ratiotest}): what do you observe? Use your observation to compute the radius of convergence of the original series in a simpler manner than part (a).
+		  
+		  \item Finally, check the endpoints to determine the interval of convergence.
+		\end{enumerate}
+		
+		%\item Find the interval of convergence of the series $\sum 2^n(2x-1)^{2n}$
+	\end{enumerate}
 \end{exercises}
+
+
 \clearpage
+\iffalse
+
 
 \subsection{Uniform Convergence}\label{sec:uniformconv}
 
-In this section we consider sequences $(f_n)$ of \emph{functions} $f_n:U\to\R$.
+In this section we consider sequences $(f_n)$ of \emph{functions} $f_n:U\to\R$ and their limits.
 
 \begin{example}{}{seqfn}
-For each $n\in\N$, consider $f_n:(0,1)\to\R:x\mapsto x^n$.
-\begin{center}
-\includegraphics{seqex1}
-\end{center}
+	For each $n\in\N$, define $f_n:(0,1)\to\R:x\mapsto x^n$. Several examples are graphed.
+	\begin{center}
+		\includegraphics{seqex1}
+	\end{center}
 \end{example}
 
-There turn out to be several good notions of convergence for sequences of functions; the simplest it where, for each $x$, $(f_n(x))$ is treated as a separate sequence of real numbers.\goodbreak
+There are several useful notions of convergence for sequences of functions. The simplest is where, for each $x$, $(f_n(x))$ is treated as a separate sequence of real numbers.\goodbreak
 
 \begin{defn}{}{}
 Suppose a function $f$ and a sequence of functions $(f_n)$ are given. We say that \emph{$(f_n)$ converges pointwise to $f$ on $U$} if,
@@ -505,61 +576,63 @@ If $f_n\to f$ uniformly where each $f_n$ is \emph{uniformly} continuous, then $f
 \end{examples}
 
 \begin{exercises}
-\exstart\phantomsection\label{exs:uniform1} For each sequence of functions defined on $[0,\infty)$:\vspace{-1pt}
-\begin{enumerate}\setcounter{enumi}{1}\itemsep0pt
-	\item[]\begin{enumerate}
-    \item[(i)] Find the pointwise limit $f(x)$ as $n\to\infty$.
-    \item[(ii)] Determine whether $f_n\to f$ uniformly on $[0,1]$.
-    \item[(iii)] Determine whether $f_n\to f$ uniformly on $[1,\infty)$.
-  \end{enumerate}\vspace{-12pt}
-  \begin{align*}
-  \text{(a)}&\quad f_n(x)=\frac xn\qquad 
-  &\text{(b)}&\quad f_n(x)=\frac{x^n}{1+x^n}\qquad
-  &\text{(c)}&\quad f_n(x)=\frac{x^n}{n+x^n}\\[4pt]
-  \text{(d)}&\quad f_n(x)=\frac x{1+nx^2}\qquad
-  &\text{(e)}&\quad f_n(x)=\frac{nx}{1+nx^2}
-  \end{align*}
- 	
- 	\item Let $f_n(x)=\left(x-\frac 1n\right)^2$. If $f(x)=x^2$, we clearly have $f_n\to f$ pointwise on any domain.
- 	\begin{enumerate}
- 	  \item Prove that the convergence is uniform on $[-1,1]$.
- 	  \item Prove that the convergence is non-uniform on $\R$.
- 	\end{enumerate}
-  
-  \item For each sequence, find the pointwise limit and decide if the convergence is uniform.
-  \begin{enumerate}
-    \item $f_n(x)=\frac{1+2\cos^2(nx)}{\sqrt n}$ for $x\in\R$.
-    \item $f_n(x)=\cos^n(x)$ on $[-\pi/2,\pi/2]$.
-  \end{enumerate}
- 	
-
-	\item\label{ex:classicnonuniform} For each $n\in\N$, consider the continuous function
-	\[f_n:[0,1]\to\R:x\mapsto nx^n(1-x)\]
-	\begin{enumerate}
-	  \item Given $0\le x<1$, let $a\in(x,1)$. Explain why
-	   %Since $\lim\limits_{n\to\infty}\frac{f_{n+1}(x)}{f_n(x)}=x<a$,
-	   $\exists N$ such that
-	  \[n>N\implies \nm{f_{n+1}(x)}\le a\nm{f_n(x)}\]
-	  Hence conclude that the pointwise limit of $(f_n)$ is the zero function.
-% 	  \item For any $n,N\in\N$ prove that $n>N\implies \frac{n+1}n<\frac{N+1}N=1+\frac 1N$
-% 	  \item Suppose $x\in(0,1)$ is given and let $N\in\N$ satisfy $x<1-\frac 1N$. Prove that
-% 	  \[n>N\implies \frac{f_n(x)}{f_N(x)} =\frac{n}{n-1}\cdots\frac{N+1}Nx^{n-N}<\left(1-\frac 1{N^2}\right)^{n-N}\]
-% 	  Hence conclude that $f_n$ converges pointwise to the zero function.
-	  \item Use elementary calculus $(f'_n(x)=0\iff\ldots)$ to prove that the maximum value of $f_n$ is located at \textcolor{Green}{$x_n=\frac n{1+n}$}. Hence compute
-		\[\sup_{x\in[0,1]}\nm{f_n(x)-f(x)}\]
-		and use it to show that the convergence $f_n\to 0$ is non-uniform.
-	\end{enumerate}
+	\emph{Key concepts:\quad ?????}
 	
-	\emph{This shows that the converse to Theorem \ref{thm:unifcontlimit} is false, even on a bounded interval: the continuous sequence $(f_n)$ converges \emph{non-uniformly} to a continuous function. Sketches of several $f_n$ are below.} 
-	\begin{center}
-	\includegraphics{seqex5}\hfill
-	\includegraphics{seqex6}\hfill 
-	\includegraphics{seqex7}\hfill
-	\includegraphics{seqex8}
-	\end{center}
-
-	\item Explain where the proof of Theorem \ref{thm:unifcontlimit} fails if $f_n\to f$ \emph{non-uniformly.}
-\end{enumerate}
+	\begin{enumerate}
+		\item\label{exs:uniform1} For each sequence of functions defined on $[0,\infty)$:
+		\begin{enumerate}
+	    \item[(i)] Find the pointwise limit $f(x)$ as $n\to\infty$.
+	    \item[(ii)] Determine whether $f_n\to f$ uniformly on $[0,1]$.
+	    \item[(iii)] Determine whether $f_n\to f$ uniformly on $[1,\infty)$.
+	  \end{enumerate}\vspace{-12pt}
+	  \begin{align*}
+	  \text{(a)}&\quad f_n(x)=\frac xn\qquad 
+	  &\text{(b)}&\quad f_n(x)=\frac{x^n}{1+x^n}\qquad
+	  &\text{(c)}&\quad f_n(x)=\frac{x^n}{n+x^n}\\[4pt]
+	  \text{(d)}&\quad f_n(x)=\frac x{1+nx^2}\qquad
+	  &\text{(e)}&\quad f_n(x)=\frac{nx}{1+nx^2}
+	  \end{align*}
+	 	
+	 	\item Let $f_n(x)=\left(x-\frac 1n\right)^2$. If $f(x)=x^2$, we clearly have $f_n\to f$ pointwise on any domain.
+	 	\begin{enumerate}
+	 	  \item Prove that the convergence is uniform on $[-1,1]$.
+	 	  \item Prove that the convergence is non-uniform on $\R$.
+	 	\end{enumerate}
+	  
+	  \item For each sequence, find the pointwise limit and decide if the convergence is uniform.
+	  \begin{enumerate}
+	    \item $f_n(x)=\frac{1+2\cos^2(nx)}{\sqrt n}$ for $x\in\R$.
+	    \item $f_n(x)=\cos^n(x)$ on $[-\pi/2,\pi/2]$.
+	  \end{enumerate}
+	 	
+	
+		\item\label{ex:classicnonuniform} For each $n\in\N$, consider the continuous function
+		\[f_n:[0,1]\to\R:x\mapsto nx^n(1-x)\]
+		\begin{enumerate}
+		  \item Given $0\le x<1$, let $a\in(x,1)$. Explain why
+		   %Since $\lim\limits_{n\to\infty}\frac{f_{n+1}(x)}{f_n(x)}=x<a$,
+		   $\exists N$ such that
+		  \[n>N\implies \nm{f_{n+1}(x)}\le a\nm{f_n(x)}\]
+		  Hence conclude that the pointwise limit of $(f_n)$ is the zero function.
+	% 	  \item For any $n,N\in\N$ prove that $n>N\implies \frac{n+1}n<\frac{N+1}N=1+\frac 1N$
+	% 	  \item Suppose $x\in(0,1)$ is given and let $N\in\N$ satisfy $x<1-\frac 1N$. Prove that
+	% 	  \[n>N\implies \frac{f_n(x)}{f_N(x)} =\frac{n}{n-1}\cdots\frac{N+1}Nx^{n-N}<\left(1-\frac 1{N^2}\right)^{n-N}\]
+	% 	  Hence conclude that $f_n$ converges pointwise to the zero function.
+		  \item Use elementary calculus $(f'_n(x)=0\iff\ldots)$ to prove that the maximum value of $f_n$ is located at \textcolor{Green}{$x_n=\frac n{1+n}$}. Hence compute
+			\[\sup_{x\in[0,1]}\nm{f_n(x)-f(x)}\]
+			and use it to show that the convergence $f_n\to 0$ is non-uniform.
+		\end{enumerate}
+		
+		\emph{This shows that the converse to Theorem \ref{thm:unifcontlimit} is false, even on a bounded interval: the continuous sequence $(f_n)$ converges \emph{non-uniformly} to a continuous function. Sketches of several $f_n$ are below.} 
+		\begin{center}
+		\includegraphics{seqex5}\hfill
+		\includegraphics{seqex6}\hfill 
+		\includegraphics{seqex7}\hfill
+		\includegraphics{seqex8}
+		\end{center}
+	
+		\item Explain where the proof of Theorem \ref{thm:unifcontlimit} fails if $f_n\to f$ \emph{non-uniformly.}
+	\end{enumerate}
 \end{exercises}
 \goodbreak
 
@@ -774,65 +847,67 @@ Since $\sum\frac 2{n^2}$ converges, the $M$-test shows that the original series 
 \goodbreak
 
 \begin{exercises}
-\exstart For each $n\in\N$, let $f_n(x)=nx^n$ when $x\in[0,1)$ and $f_n(1)=0$.
-\begin{enumerate}\setcounter{enumi}{1}
-	\item[]\begin{enumerate}
-    \item Prove that $f_n\to 0$ pointwise on $[0,1]$.\\
-    (\emph{Hint: recall Exercise \hyperref[ex:classicnonuniform]{\ref*{sec:uniformconv}.\ref*{ex:classicnonuniform}} if you're not sure how to prove this})
-    \item By considering the integrals $\int_0^1f_n(x)\,\dx$ show that $f_n\to 0$ is not uniform.
-  \end{enumerate}
-  
-  \item\label{ex:cauchyexproof} Prove that if $f_n\to f$ uniformly, then the sequence $(f_n)$ is uniformly Cauchy.
-  
-  \item\begin{enumerate}
-    \item Suppose $(f_n)$ is a sequence of bounded functions on $U$ and suppose that $f_n\to f$ converges uniformly on $U$. Prove that $f$ is bounded on $U$.
-    \item Give an example of a sequence of bounded functions $(f_n)$ converging pointwise to $f$ on $[0,\infty)$, but for which $f$ is \emph{unbounded.}
-  \end{enumerate}
-  
-  \item The sequence defined by $f_n(x)=\frac{nx}{1+nx^2}$ (Exercise \hyperref[exs:uniform1]{\ref*{sec:uniformconv}.1}) converges uniformly on any closed interval $[a,b]$ where $0<a<b$.
-  \begin{enumerate}
-    \item Check explicitly that $\int_a^b f_n(x)\,\dx\to \int_a^bf(x)\,\dx$, where $f=\lim f_n$.
-    \item Is the same thing true for derivatives?
-  \end{enumerate}
-  
- 	\item Let $f_n(x)=n^{-1}\sin n^2x$ be defined on $\R$.
- 	\begin{enumerate}
- 	  \item Prove that $f_n$ converges uniformly on $\R$.
- 	  \item Check that $\int_0^x f_n(t)\,\dt$ converges for any $x\in\R$.
- 	  \item Does the derived sequence $(f_n')$ converge? Explain.
- 	\end{enumerate}
-  
-%   \item As another example, we've already seen (page \pageref{ex:classicnonuniform}) that the pointwise convergence $f_n\to 0$ where $f_n(x)=nx^n(1-x)$ is not uniform. However the integrals still converge;
-% 	\[\int_0^1f_n(x)\,\dx=\frac n{n+1}-\frac n{n+2}\xrightarrow[n\to\infty]{} 0=\int_0^1f(x)\,\dx\]
-	
+	\emph{Key concepts:\quad ?????}
 
-	
-	\item Use the $M$-test to prove that $\displaystyle\sum\limits_{n=1}^\infty\frac{x^n}{n^2}$ defines a continuous function on $[-1,1]$.
-  
-  \item Prove that $\displaystyle\sum\limits_{n=1}^\infty\frac{x^n\sin x}{(n+1)^32^n}$ converges uniformly to a continuous function on the interval $[-2,2]$.
-
- \item Prove that if $\sum g_k$ converges uniformly on a set $U$ and if $h$ is a bounded function on $U$, then $\sum hg_k$ converges uniformly on $U$.\\
- (\emph{Warning: you cannot simply write $\sum hg_k=h\sum g_k$})
-
-% 	\item $f_n(x)=n^{-1}e^{-nx}$ on $[0,\infty)$ converges uniformly to $f(x)=0$ since $\nm{f_n(x)}\le \frac 1n$. However
-% \[f'_n(x)=-e^{-nx}\]
-% only converges to $f'(x)=0$ when $x>0$, and only uniformly so on intervals $[a,\infty)$ where $a>0$.\goodbreak	
-
-	\item Consider Example \hyperref[ex:intnotconv]{\ref*{ex:intnotconvout}.\ref*{ex:intnotconv}}.
 	\begin{enumerate}
-	  \item Check explicitly that the convergence isn't uniform by computing $\sup\limits_{x\in[-1,1]}\nm{f_n(x)-f(x)}$
-	  \item Prove that $f_n\to 0$ pointwise on $(0,1]$ using the $\epsilon$--$N$ definition of convergence: that is, given $\epsilon>0$ and $x\in(0,1]$, find an explicit $N(x,\epsilon)$ such that
-  	\[n>N\implies \nm{f(x)}<\epsilon\]
-  	What happens to your choice of $N(x,\epsilon)$ as $x\to 0^+$?
-	\end{enumerate}
+		\item For each $n\in\N$, let $f_n(x)=nx^n$ when $x\in[0,1)$ and $f_n(1)=0$.
+		\begin{enumerate}
+	    \item Prove that $f_n\to 0$ pointwise on $[0,1]$.\\
+	    (\emph{Hint: recall Exercise \hyperref[ex:classicnonuniform]{\ref*{sec:uniformconv}.\ref*{ex:classicnonuniform}} if you're not sure how to prove this})
+	    \item By considering the integrals $\int_0^1f_n(x)\,\dx$ show that $f_n\to 0$ is not uniform.
+	  \end{enumerate}
+	  
+	  \item\label{ex:cauchyexproof} Prove that if $f_n\to f$ uniformly, then the sequence $(f_n)$ is uniformly Cauchy.
+	  
+	  \item\begin{enumerate}
+	    \item Suppose $(f_n)$ is a sequence of bounded functions on $U$ and suppose that $f_n\to f$ converges uniformly on $U$. Prove that $f$ is bounded on $U$.
+	    \item Give an example of a sequence of bounded functions $(f_n)$ converging pointwise to $f$ on $[0,\infty)$, but for which $f$ is \emph{unbounded.}
+	  \end{enumerate}
+	  
+	  \item The sequence defined by $f_n(x)=\frac{nx}{1+nx^2}$ (Exercise \hyperref[exs:uniform1]{\ref*{sec:uniformconv}.1}) converges uniformly on any closed interval $[a,b]$ where $0<a<b$.
+	  \begin{enumerate}
+	    \item Check explicitly that $\int_a^b f_n(x)\,\dx\to \int_a^bf(x)\,\dx$, where $f=\lim f_n$.
+	    \item Is the same thing true for derivatives?
+	  \end{enumerate}
+	  
+	 	\item Let $f_n(x)=n^{-1}\sin n^2x$ be defined on $\R$.
+	 	\begin{enumerate}
+	 	  \item Prove that $f_n$ converges uniformly on $\R$.
+	 	  \item Check that $\int_0^x f_n(t)\,\dt$ converges for any $x\in\R$.
+	 	  \item Does the derived sequence $(f_n')$ converge? Explain.
+	 	\end{enumerate}
+	  
+	%   \item As another example, we've already seen (page \pageref{ex:classicnonuniform}) that the pointwise convergence $f_n\to 0$ where $f_n(x)=nx^n(1-x)$ is not uniform. However the integrals still converge;
+	% 	\[\int_0^1f_n(x)\,\dx=\frac n{n+1}-\frac n{n+2}\xrightarrow[n\to\infty]{} 0=\int_0^1f(x)\,\dx\]
+		
 	
-	\item\label{ex:derivunifconvtidy} Suppose $(f_n')$ converges uniformly on $[a,b]$ and that each $f_n'$ is continuous.
-	\begin{enumerate}
-	  \item Use the fact that $(f_n')$ is uniformly Cauchy to prove that $(f_n)$ is uniformly Cauchy and thus converges uniformly to some function $f$.\\
-		(\emph{Hint: $\nm{f_n(x)-f_m(x)}=\nm{\int_a^xf_n'(t)-f_m'(t)\,\dt}\ldots$})
-		\item Explain why we need not have assumed the existence of $f$ in Theorem \ref{thm:unifderiv}.
+		
+		\item Use the $M$-test to prove that $\smash[b]{\sum\limits_{n=1}^\infty\frac{x^n}{n^2}}$ defines a continuous function on $[-1,1]$.
+	  
+	  \item Prove that $\sum\limits_{n=1}^\infty\frac{x^n\sin x}{(n+1)^32^n}$ converges uniformly to a continuous function on the interval $[-2,2]$.
+	
+	 \item Prove that if $\sum g_k$ converges uniformly on a set $U$ and if $h$ is a bounded function on $U$, then $\sum hg_k$ converges uniformly on $U$.\\
+	 (\emph{Warning: you cannot simply write $\sum hg_k=h\sum g_k$})
+	
+	% 	\item $f_n(x)=n^{-1}e^{-nx}$ on $[0,\infty)$ converges uniformly to $f(x)=0$ since $\nm{f_n(x)}\le \frac 1n$. However
+	% \[f'_n(x)=-e^{-nx}\]
+	% only converges to $f'(x)=0$ when $x>0$, and only uniformly so on intervals $[a,\infty)$ where $a>0$.\goodbreak	
+	
+		\item Consider Example \hyperref[ex:intnotconv]{\ref*{ex:intnotconvout}.\ref*{ex:intnotconv}}.
+		\begin{enumerate}
+		  \item Check explicitly that the convergence isn't uniform by computing $\sup\limits_{x\in[-1,1]}\nm{f_n(x)-f(x)}$
+		  \item Prove that $f_n\to 0$ pointwise on $(0,1]$ using the $\epsilon$--$N$ definition of convergence: that is, given $\epsilon>0$ and $x\in(0,1]$, find an explicit $N(x,\epsilon)$ such that
+	  	\[n>N\implies \nm{f(x)}<\epsilon\]
+	  	What happens to your choice of $N(x,\epsilon)$ as $x\to 0^+$?
+		\end{enumerate}
+		
+		\item\label{ex:derivunifconvtidy} Suppose $(f_n')$ converges uniformly on $[a,b]$ and that each $f_n'$ is continuous.
+		\begin{enumerate}
+		  \item Use the fact that $(f_n')$ is uniformly Cauchy to prove that $(f_n)$ is uniformly Cauchy and thus converges uniformly to some function $f$.\\
+			(\emph{Hint: $\nm{f_n(x)-f_m(x)}=\nm{\int_a^xf_n'(t)-f_m'(t)\,\dt}\ldots$})
+			\item Explain why we need not have assumed the existence of $f$ in Theorem \ref{thm:unifderiv}.
+		\end{enumerate}
 	\end{enumerate}
-\end{enumerate}
 \end{exercises}
 
 
@@ -994,49 +1069,53 @@ We conclude that $\lim\limits_{x\to 1^-}f(x)=s$.
 \clearpage
 
 \begin{exercises}
-\exstart (a) \ Prove that $\displaystyle\sum_{n=1}^\infty nx^n=\frac x{(1-x)^2}$ for $\nm x<1$.\vspace{-8pt}
+	\emph{Key concepts:\quad ?????}
 
-\begin{enumerate}\setcounter{enumi}{1}\itemsep0pt
-  \item[]\begin{enumerate}\setcounter{enumii}{1}
-   \item Evaluate $\displaystyle\sum_{n=1}^\infty\frac n{2^n}$, $\displaystyle\sum_{n=1}^\infty\frac{n}{4^n}$ and $\displaystyle\sum_{n=1}^\infty\frac{(-1)^nn}{4^n}$
- \end{enumerate}
- 
- \item\begin{enumerate}
-   \item Starting with a power series centered at $x=0$, evaluate the integral $\displaystyle\int_0^{1/2}\frac 1{1+x^4}\,\dx$ as an infinite series.
-   \item (Harder) Repeat part (a) but for $\displaystyle\int_0^{1}\frac 1{1+x^4}\,\dx$. What extra ingredients do you need? 
- \end{enumerate}
- 
- \item The probability that a standard normally distributed random variable $X$ lies in the interval $[a,b]$ is given by the integral
- \[\pr(a\le X\le b)=\frac 1{\sqrt{2\pi}}\int_a^b\exp\left(-\frac{x^2}2\right)\,\dx\]
- Find $\pr(-1\le X\le 1)$ as an infinite series.
-
- \item Define $\displaystyle c(x)=\sum_{n=0}^\infty\frac{x^{2n}}{(2n)!}$ and $\displaystyle s(x)=\sum_{n=0}^\infty\frac{x^{2n+1}}{(2n+1)!}$.
- \begin{enumerate}
-   \item Prove that $c'(x)=s(x)$ and that $s'(x)=c(x)$.
-   \item Prove that $c(x)^2-s(x)^2=1$ for all $x\in\R$.
- \end{enumerate}
- (\emph{These functions are the hyperbolic sine and cosine: $s(x)=\sinh x$ and $c(x)=\cosh x$})
- 
- 
-	\item Let $a,b\in(-1,1)$. Extending Example \ref{ex:geometricps}, show that the convergence $\sum x^n=\frac 1{1-x}$ is non-uniform on any interval of the form $(-1,a)$ or $(b,1)$.
+	\begin{enumerate}
+	  \item\begin{enumerate}
+			\item Prove that $\displaystyle\sum_{n=1}^\infty nx^n=\frac x{(1-x)^2}$ for $\nm x<1$.
+	   	\item Evaluate $\displaystyle\sum_{n=1}^\infty\frac n{2^n}$, $\displaystyle\sum_{n=1}^\infty\frac{n}{4^n}$ and $\displaystyle\sum_{n=1}^\infty\frac{(-1)^nn}{4^n}$
+	 \end{enumerate}
+	 
+	 \item\begin{enumerate}
+	   \item Starting with a power series centered at $x=0$, evaluate the integral $\displaystyle\int_0^{1/2}\frac 1{1+x^4}\,\dx$ as an infinite series.
+	   \item (Harder) Repeat part (a) but for $\displaystyle\int_0^{1}\frac 1{1+x^4}\,\dx$. What extra ingredients do you need? 
+	 \end{enumerate}
+	 
+	 \item The probability that a standard normally distributed random variable $X$ lies in the interval $[a,b]$ is given by the integral
+	 \[\pr(a\le X\le b)=\frac 1{\sqrt{2\pi}}\int_a^b\exp\left(-\frac{x^2}2\right)\,\dx\]
+	 Find $\pr(-1\le X\le 1)$ as an infinite series.
 	
-	\item\label{ex:psintegralproof} Prove the integration part of Theorem \ref{thm:psintdiff}.
-	
-	\item Prove or disprove: If a series converges absolutely at the \emph{endpoints} of its interval of convergence then its convergence is uniform on the entire interval.
- 
- 	\item Complete the proof of Abel's Theorem:
- 	\begin{enumerate}
-   	\item Let \smash[b]{$s_n=\sum\limits_{k=0}^n a_k$} be the partial sum of the series $\sum a_n$. For each $n$, prove that,
-   	\[\sum_{k=0}^na_kx^k =s_nx^n+(1-x)\sum_{k=0}^{n-1}s_kx^k\]
-   	\item Suppose $x>0$. Let $S=\max\{\nm{s_n-s}:n\le N\}$ and prove that $h(x)\le S(1-x^{N+1})$. Hence find an explicit $\delta$ that completes the final step.
+	 \item Define $\displaystyle c(x)=\sum_{n=0}^\infty\frac{x^{2n}}{(2n)!}$ and $\displaystyle s(x)=\sum_{n=0}^\infty\frac{x^{2n+1}}{(2n+1)!}$.
+	 \begin{enumerate}
+	   \item Prove that $c'(x)=s(x)$ and that $s'(x)=c(x)$.
+	   \item Prove that $c(x)^2-s(x)^2=1$ for all $x\in\R$.
+	 \end{enumerate}
+	 (\emph{These functions are the hyperbolic sine and cosine: $s(x)=\sinh x$ and $c(x)=\cosh x$})
+	 
+	 
+		\item Let $a,b\in(-1,1)$. Extending Example \ref{ex:geometricps}, show that the convergence $\sum x^n=\frac 1{1-x}$ is non-uniform on any interval of the form $(-1,a)$ or $(b,1)$.
+		
+		\item\label{ex:psintegralproof} Prove the integration part of Theorem \ref{thm:psintdiff}.
+		
+		\item Prove or disprove: If a series converges absolutely at the \emph{endpoints} of its interval of convergence then its convergence is uniform on the entire interval.
+	 
+	 	\item Complete the proof of Abel's Theorem:
+	 	\begin{enumerate}
+	   	\item Let \smash[b]{$s_n=\sum\limits_{k=0}^n a_k$} be the partial sum of the series $\sum a_n$. For each $n$, prove that,
+	   	\[\sum_{k=0}^na_kx^k =s_nx^n+(1-x)\sum_{k=0}^{n-1}s_kx^k\]
+	   	\item Suppose $x>0$. Let $S=\max\{\nm{s_n-s}:n\le N\}$ and prove that $h(x)\le S(1-x^{N+1})$. Hence find an explicit $\delta$ that completes the final step.
+		\end{enumerate}
+		
+		
+	% 	\item If $\sum a_nx^n$ has radius of convergence $R$, carfully explain how to find the radius of convergence of $\sum a_n(x-7)^{2n+3}$.
 	\end{enumerate}
-	
-	
-% 	\item If $\sum a_nx^n$ has radius of convergence $R$, carfully explain how to find the radius of convergence of $\sum a_n(x-7)^{2n+3}$.
-\end{enumerate}
 \end{exercises}
 
+
 \clearpage
+
+
 
 \subsection{The Weierstraß Approximation Theorem}
 
@@ -1044,7 +1123,7 @@ A major theme of analysis is \emph{approximation}; for instance power series are
 
 
 \begin{thm}{Weierstraß}{}
-If $f:[a,b]\to\R$ is continuous, then there exists a sequence of polynomials converging uniformly to $f$ on $[a,b]$.
+	If $f:[a,b]\to\R$ is continuous, then there exists a sequence of polynomials converging uniformly to $f$ on $[a,b]$.
 \end{thm}
 
 Suitable polynomials can be defined in various ways. By scaling the domain, it is enough to do this on $[a,b]=[0,1]$ where perhaps the simplest approach is via the \emph{Bernstein Polynomials,}
@@ -1133,18 +1212,23 @@ The pictures show cubic Bézier curves: the first is the graph of the Bernstein 
 while the second is for the four given control points $A,B,C,D$.
 
 \begin{exercises}
-\exstart Show that the closed bounded interval assumption in the approximation theorem is required by giving an example of a continuous function $f:(-1,1)\to\R$ which is \emph{not} the uniform limit of a sequence of polynomials.
-\begin{enumerate}\setcounter{enumi}{1}  
-  \item If $g:[a,b]\to\R$ is continuous, then $f(x):=g\bigl((b-a)x+a\bigr)$ is continuous on $[0,1]$. If $P_n\to f$ uniformly on $[0,1]$, prove that $Q_n\to g$ uniformly on $[a,b]$, where
-	\[Q_n(x)= P_n\left(\frac{x-a}{b-a}\right)\]
+	\emph{Key concepts:\quad ?????}
 
-	\item Use the binomial theorem to check that every Bernstein polynomial for $f(x)=x$ is $B_nf(x)=x$ itself!
-  
-	\item Find a parametrization of the cubic Bézier curve with control points $(1,0)$, $(0,1)$, $(-1,0)$ and $(0,-1)$. Now sketch the curve.\\
-	(\emph{Use a computer algebra package if you like!})
+	\begin{enumerate}
+	  \item Show that the closed bounded interval assumption in the approximation theorem is required by giving an example of a continuous function $f:(-1,1)\to\R$ which is \emph{not} the uniform limit of a sequence of polynomials.
+	  
+	  \item If $g:[a,b]\to\R$ is continuous, then $f(x):=g\bigl((b-a)x+a\bigr)$ is continuous on $[0,1]$. If $P_n\to f$ uniformly on $[0,1]$, prove that $Q_n\to g$ uniformly on $[a,b]$, where
+		\[Q_n(x)= P_n\left(\frac{x-a}{b-a}\right)\]
 	
-	\item (Hard) Show that the Bernstein polynomials for $f(x)=x^2$ are given by 
-	\[B_nf(x)=\frac 1nx+\frac{n-1}nx^2\]
-	and thus verify explicitly that $B_nf\to f$ uniformly.
-\end{enumerate}
+		\item Use the binomial theorem to check that every Bernstein polynomial for $f(x)=x$ is $B_nf(x)=x$ itself!
+	  
+		\item Find a parametrization of the cubic Bézier curve with control points $(1,0)$, $(0,1)$, $(-1,0)$ and $(0,-1)$. Now sketch the curve.\\
+		(\emph{Use a computer algebra package if you like!})
+		
+		\item (Hard) Show that the Bernstein polynomials for $f(x)=x^2$ are given by 
+		\[B_nf(x)=\frac 1nx+\frac{n-1}nx^2\]
+		and thus verify explicitly that $B_nf\to f$ uniformly.
+	\end{enumerate}
 \end{exercises}
+
+\fi

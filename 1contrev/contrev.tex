@@ -1008,7 +1008,7 @@ We now consider the ways in which a function can fail to be continuous.
 The next result helps us classify isolated discontinuities.
 
 \begin{thm}{}{sidedlimitsequal}
-	Let $f:U\to\R$ and suppose $a\in U^\circ$ is an interior point. Then
+	Let $f$ be defined on a punctured neighborhood of $a\in\R$. Then
 	\[
 		\lim\limits_{x\to a}f(x)=L \iff \lim\limits_{x\to a^+}f(x)=L=\lim\limits_{x\to a^-}f(x)
 	\]
@@ -1017,7 +1017,7 @@ The next result helps us classify isolated discontinuities.
 \begin{proof}
 	\begin{description}
 	\item[\normalfont ($\Rightarrow$)] Let $S=(c,a)\cup(a,b)$ satisfy the definition for $\lim\limits_{x\to a}f(x)=L$. Since any sequence (say) in $S^+$ is also in $S$, plainly $S^+=(a,b)$ and $S^-=(c,a)$ satisfy the one-sided definitions.
-	\item[\normalfont ($\Leftarrow$)] Suppose $S^-=(c,a)$ and $S^+=(a,b)$ satisfy the one-sided definitions and denote $S=S^-\cup S^+$. Let $(x_n)\subseteq S$ be such that $x_n\to a$. Clearly $(x_n)$ is the disjoint union of two subsequences $(x_n)\cap S^+$ and $(x_n)\cap S^-$, both of which\footnotemark converge to $a$. There are three cases:%\vspace{-5pt}
+	\item[\normalfont ($\Leftarrow$)] Suppose $S^-=(c,a)$ and $S^+=(a,b)$ satisfy the one-sided definitions and denote $S=S^-\cup S^+$. Let $(x_n)\subseteq S$ be such that $x_n\to a$. Clearly $(x_n)$ is the disjoint union of two subsequences $(x_n)\cap S^+$ and $(x_n)\cap S^-$, both of which\footnotemark{} converge to $a$. There are three cases:
 	\begin{description}\itemsep0pt
 		\item[$L$ \normalfont{finite}:] Let $\epsilon>0$ be given. Because of the one-sided limits,
 		\begin{itemize}
@@ -1189,7 +1189,7 @@ It is also reasonable to refer to removable, infinite or essential discontinuiti
 	  \]
 	  
 	  
-	  \item Let $a\in U^\circ$. Verify the claim following Definition \ref{defn:leftrightlimit}: $\lim\limits_{x\to a}f(x)=L$ if and only if
+	  \item Verify the claim following Definition \ref{defn:leftrightlimit}: $\lim\limits_{x\to a}f(x)=L$ if and only if
 	  \[
 	  	\forall\epsilon>0,\exists\delta>0\text{ such that }0<\nm{x-a}<\delta\implies \nm{f(x)-L}<\epsilon
 	  \]

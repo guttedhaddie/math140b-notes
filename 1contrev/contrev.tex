@@ -868,9 +868,9 @@ Loosely speaking, this means that if $(x_n)\subseteq\R\setminus\{3\}$ is a seque
  	Warning! When $\dom(f)$ does not contain a punctured neighborhood of $a$, the right hand side doesn't exist and the assertion is \emph{false}!
   \item By modifying the proof of Theorem \ref{thm:contdefequiv} when $a,L\in\R$ are finite, we can restate using $\epsilon$-language. For instance, $\lim\limits_{x\to a}f(x)=L$ means
   \[
-  	\forall\epsilon>0,\ \exists \delta>0\text{ such that }(\forall x\in\R)\ 0<\nm{x-a}<\delta\implies \nm{f(x)-L}<\epsilon
+  	\forall\epsilon>0,\ \exists \delta>0\text{ such that }(\forall x\in\dom f) \ \ 0<\nm{x-a}<\delta\implies \nm{f(x)-L}<\epsilon
   \]
-  If $a$ and/or $L$ is infinite, use the language of unboundedness: e.g. $\lim\limits_{x\to a}f(x)=\infty$ means
+  If $a$ and/or $L$ is infinite, use the language of unboundedness: e.g., $\lim\limits_{x\to a}f(x)=\infty$ means
   \[
   	\forall M>0,\ \exists \delta>0\text{ such that }0<\nm{x-a}<\delta\implies f(x)>M
   \]

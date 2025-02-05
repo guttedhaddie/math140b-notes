@@ -2,74 +2,93 @@
 
 \section{Differentiation}
 
-Differentiation grew out of the problem of \emph{instantaneous velocity.} Velocity can only easily be measured as an \emph{average} over a time interval:\footnote{Even a modern technique such as Doppler-shift compares measurements separated by the extremely small period of a light or soundwave. These are still therefore \emph{average} velocities, albeit taken over very small time intervals.} if an object travels $\Delta d$ meters in $\Delta t$ seconds, then its average velocity is $v_\text{av}=\frac{\Delta d}{\Delta t}$ ms$^{-1}$. An early `definition' (dating to the 1300's) makes the instantaneous velocity equal to the constant velocity that would be observed if a body were to stop accelerating: while useless for the purposes of measurement, this is essentially Newton's first law regarding inertial motion (1687). We also see the concept of the \emph{tangent line} beginning to appear: if one graphs position against time, then a couple of things should be clear:
+Differentiation grew out of the problem of \emph{instantaneous velocity.} Velocity can only easily be measured as an \emph{average} over a time interval:\footnote{%
+	Even a modern technique such as Doppler-shift compares measurements separated by the extremely small period of a light or soundwave. These are still therefore \emph{average} velocities, albeit taken over very small time intervals.%
+}
+if an object travels $\Delta d$ meters in $\Delta t$ seconds, then its average velocity is $v_\text{av}=\frac{\Delta d}{\Delta t}$ ms$^{-1}$. An early `definition' (dating to the 1300s) makes the instantaneous velocity equal to the constant velocity that would be observed if a body were to stop accelerating: while useless for the purposes of measurement, this is essentially Newton's first law regarding inertial motion (1687). We also see the concept of the \emph{tangent line} beginning to appear. Indeed if one graphs position against time, intuition tells us:
 \begin{itemize}
   \item The graph of inertial (constant speed) motion is a straight line whose slope is the velocity.
-  \item The tangent line to a curve at a point has slope equal to the instantaneous velocity at that point. 
+  \item The tangent line to a curve has slope equal to the instantaneous velocity. 
 \end{itemize}
-The problem of finding, defining and computing instantaneous velocity thus morphed into the consideration of tangent lines to curves. With the advent of analytic geometry in the early 1600's, mathematicians such as Fermat and Descartes pioneered versions of the familiar \emph{secant (`cutting') line} method for computing tangents.
+The problem of finding, defining and computing instantaneous velocity thus morphed into the consideration of tangent lines to curves. With the advent of analytic geometry in the early 1600s, mathematicians such as Fermat and Descartes pioneered versions of the familiar \emph{secant (`cutting') line} method for computing tangents.
 
 \begin{center}
-\begin{tabular}{p{0.46\linewidth}@{\qquad}p{0.46\linewidth}}
-\includegraphics{diff-history}
-&
-\includegraphics{diff-history2}
-\\
-\centering Instantaneous velocity equals constant velocity corresponding to tangent line
-&
-\centering Secant lines approximate tangent line as $t\to a$
-\end{tabular}
+	\begin{tabular}{p{0.46\linewidth}@{\qquad}p{0.46\linewidth}}
+		\includegraphics{diff-history}
+		&
+		\includegraphics{diff-history2}
+		\\
+		\centering Instantaneous velocity equals constant velocity corresponding to tangent line
+		&
+		\centering Secant lines approximate tangent line as $t\to a$
+	\end{tabular}
 \end{center}
 
 The average velocity of the particle over the time interval $[a,t]$ is the slope of the secant line, namely
-\[v_\text{av}(a,t)=\frac{d(t)-d(a)}{t-a}\]
+\[
+	v_\text{av}(a,t)=\frac{d(t)-d(a)}{t-a}
+\]
 Since the secant lines approximate the tangent line as $t$ approaches $a$, it seems  reasonable that we should compute the instantaneous velocity in this manner:
-\[v(a)=\lim_{t\to a}v_\text{av}(a,t)=\lim_{t\to a}\frac{d(t)-d(a)}{t-a}\]
-This is, of course, the modern definition of the \emph{derivative.}\goodbreak
+\[
+	v(a)=\lim_{t\to a}v_\text{av}(a,t)
+	=\lim_{t\to a}\frac{d(t)-d(a)}{t-a}
+\]
+This is, of course, the modern definition of the \emph{derivative.}
+\goodbreak
+
 
 \setcounter{subsection}{27}
 \subsection{Basic Properties of the Derivative}\label{sec:derivproperties}
 
 \begin{defn}{}{deriv}
-Let $f:U\to\R$ and let $a\in U$. We say that \emph{$f$ is differentiable at $a$} if the following limit exists (is \emph{finite}!)
-%\footnote{Alternatively $\displaystyle f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}{h}$ (see the homework).
-%One benefit of this approach is that by replacing $a$ with $x$ one immediately obtains $f'(x)$ as a function of $x$.
-%}
-\[\lim_{x\to a}\frac{f(x)-f(a)}{x-a}\]
-We call this limit the \emph{derivative of $f$ at $a$} and denote its value by either $f'(a)$ or $\diffat[f]{x}{x=a}$.\smallbreak
-If $f'(a)$ exists for all $a\in U$ then $f$ is \emph{differentiable (on $U$)}; the derivative becomes a function $f'(x)=\diff[f]{x}$.
+	Let $f:U\to\R$ and $a\in U$. We say that \emph{$f$ is differentiable at $a$} if the following limit exists (is \emph{finite}!)
+	\[
+		\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+	\]
+	We call this limit the \emph{derivative of $f$ at $a$} and denote its value by $\diffat[f]{x}{x=a}$ or $f'(a)$.\smallbreak
+	If $f'(a)$ exists for all $a\in U$ then $f$ is \emph{differentiable (on $U$)}; the derivative becomes a function $\textcolor{Green}{f'(x)}=\textcolor{red}{\diff[f]{x}}$.
 \end{defn}
 
-\boldinline{Notation} The contrasting styles are partly attributable,  to the primary founders of calculus, Issac Newton and Gottfried Leibniz. Each has its pros and cons and you should be comfortable with both.
+The two notations are partly attributable to the primary founders of calculus: \textcolor{Green}{Issac Newton} and \textcolor{red}{Gottfried Leibniz}. Each has its pros and cons and you should be comfortable with both.
 
-\boldinline{One-sided derivatives} Since the defining limit is \emph{two-sided,} differentiability only makes sense at \emph{interior points} of $U$. \emph{Left-} and \emph{right-derivatives} may be defined via one-sided limits; differentiability is  equivalent to these being equal. All results in this section hold for one-sided derivatives with suitable (sometimes tedious) modifications. It is quite common, though strictly incorrect, to say that $f$ is differentiable on an interval $[a,b)$ if it is differentiable on the interior $(a,b)$ and \emph{right-}differentiable at $a$; however, we will strictly adhere to differentiable meaning \emph{two-sided.}
+\boldinline{One-sided derivatives} Since the defining limit is \emph{two-sided,} differentiability only makes sense at \emph{interior points} of $U$. \emph{Left-} and \emph{right-derivatives} may be defined using one-sided limits; differentiability is  equivalent to these being equal. All results in this section hold for one-sided derivatives with suitable (sometimes tedious) modifications. It is common, though strictly incorrect, to say that $f$ is differentiable on $[a,b)$ if it is differentiable on the interior $(a,b)$ and \emph{right-}differentiable at $a$. In these notes we will strictly adhere to Definition \ref{defn:deriv}: differentiable means \emph{two-sided.}
 
 
 \begin{examples}{}{}
-\exstart Let $f(x)=x^2+4x$. Then, for any $a\in\R$,
-	\begin{align*}
-		\lim_{x\to a}\frac{f(x)-f(a)}{x-a}&= \lim_{x\to a}\frac{x^2+4x-a^2-4a}{x-a} =\lim_{x\to a}\frac{(x-a)(x+a+4)}{x-a}\\
-		&=\lim_{x\to a}(x+a+4)=2a+4
-	\end{align*}
-	Note how the definition of $\lim\limits_{x\to a}$ allows us to cancel the $x-a$ terms from the numerator and denominator. We conclude that $f$ is differentiable (on $\R$) and that $f'(x)=2x+4$.
-\begin{enumerate}\setcounter{enumi}{1}
-	\item Let $g(x)=\frac{x+1}{2x-3}$. Then, for any $a\neq\frac 32$,
-	\begin{align*}
-		\lim_{x\to a}\frac{f(x)-f(a)}{x-a}&= \lim_{x\to a}\frac 1{x-a}\left[\frac{x+1}{2x-3}-\frac{a+1}{2a-3}\right] =\lim_{x\to a}\frac{5a-5x}{(x-a)(2x-3)(2a-3)}\\
-		&=\lim_{x\to a}\frac{-5}{(2x-3)(2a-3)} =\frac{-5}{(2a-3)^2}
-	\end{align*}
-	$f$ is therefore differentiable on its domain $\R\setminus\{\frac 32\}$ with derivative $f'(x)=\frac{-5}{(2x-3)^2}$.
-\end{enumerate}
+	Basic examples should be familiar from elementary calculus.
+	\begin{enumerate}
+	  \item Let $f(x)=x^2+4x$. Then, for any $a\in\R$,
+		\begin{align*}
+			\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+			&=\lim_{x\to a}\frac{x^2+4x-a^2-4a}{x-a} 
+			=\lim_{x\to a}\frac{(x-a)(x+a+4)}{x-a}\\
+			&=\lim_{x\to a}(x+a+4)=2a+4
+		\end{align*}
+		Note how the definition of $\lim\limits_{x\to a}$ allows us to cancel the $x-a$ terms from the numerator and denominator. We conclude that $f$ is differentiable (on $\R$) and that $f'(x)=2x+4$.
+		
+		\item Let $g(x)=\frac{x+1}{2x-3}$. Then, for any $a\neq\frac 32$,
+		\begin{align*}
+			\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+			&=\lim_{x\to a}\frac 1{x-a}\left[\frac{x+1}{2x-3}-\frac{a+1}{2a-3}\right] 
+			=\lim_{x\to a}\frac{5a-5x}{(x-a)(2x-3)(2a-3)}\\
+			&=\lim_{x\to a}\frac{-5}{(2x-3)(2a-3)} 
+			=\frac{-5}{(2a-3)^2}
+		\end{align*}
+		$f$ is therefore differentiable on its domain $\R\setminus\{\frac 32\}$ with derivative $f'(x)=\frac{-5}{(2x-3)^2}$.
+	\end{enumerate}
 \end{examples}
 
 The familiar expressions
-\[f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}h,\qquad f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}h\]
+\[
+	f'(a)=\lim_{h\to 0}\frac{f(a+h)-f(a)}h,\qquad 
+	f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}h
+\]
 are equivalent to the original definition (see Exercise \ref{ex:hderiv}). While seemingly simpler, they sometimes lead to nastier calculations: see what happens if you try the previous example in this language\ldots\medbreak\goodbreak
 
 We now turn to possibly the most well-known result of Freshman Calculus.
 
 \begin{thm}{Power Law}{}
-Let $r\in\R$. Then $f(x)=x^r$ is differentiable with $f'(x)=rx^{r-1}$.
+	Let $r\in\R$. Then $f(x)=x^r$ is differentiable with $f'(x)=rx^{r-1}$.
 \end{thm}
 
 The domains of $f$ and $f'$ depend messily on $r$, but the above certainly holds on the interval $(0,\infty)$. We leave a complete proof to the exercises and instead consider a few generalizable examples.

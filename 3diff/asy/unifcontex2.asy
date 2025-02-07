@@ -1,4 +1,3 @@
-settings.prc=false;
 settings.outformat="pdf";
 
 texpreamble("\usepackage{amsmath}
@@ -8,7 +7,7 @@ texpreamble("\usepackage{amsmath}
 ");
 import graph;
 
-size(160);
+size(150);
 
 real g(real x){return x;}
 

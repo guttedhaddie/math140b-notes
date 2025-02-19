@@ -549,11 +549,11 @@ This follows easily from two lemmas.
 	\end{enumerate}
 \end{lemm}
 
-The main result is obtained by applying Rolle's theorem to
+The main result is obtained by subtracting a straight line and applying Rolle's theorem to
 \[
-	g(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-b)
+	g(x)=f(x)-\frac{f(b)-f(a)}{b-a}(x-a)
 \]
-and observing that $g(a)=f(b)=g(b)$ and $g'(x)=f'(x)-\frac{f(b)-f(a)}{b-a}$.
+and observing that $g(a)=f(a)=g(b)$ and $g'(x)=f'(x)-\frac{f(b)-f(a)}{b-a}$.
 
 \begin{center}
 	\includegraphics[scale=0.95]{mvt}
@@ -562,23 +562,41 @@ and observing that $g(a)=f(b)=g(b)$ and $g'(x)=f'(x)-\frac{f(b)-f(a)}{b-a}$.
 In the pictures, the orange and green lines are \emph{parallel}: the \textcolor{orange}{average slope} over the interval $[a,b]$ equals the \textcolor{Green}{gradient/derivative} $f'(\xi)$.
 
 \begin{proof}[Proof of Lemma]
-	\begin{enumerate}\itemsep0pt
-	  \item For contradiction, suppose that
+	\begin{enumerate}%\itemsep0pt
+% 	  \item For contradiction, suppose that
+% 		\[
+% 			g'(\xi)=\lim_{x\to \xi}\frac{g(x)-g(\xi)}{x-\xi}>0
+% 		\]
+% 		Let $\epsilon=g'(\xi)$ in the definition of limit: $\exists\delta>0$ such that
+% 		\[
+% 			0<\nm{x-\xi}<\delta
+% 			\implies\nm{\frac{g(x)-g(\xi)}{x-\xi}-g'(\xi)}<g'(\xi)
+% 			\implies 0<\frac{g(x)-g(\xi)}{x-\xi}<2g'(\xi)
+% 		\]
+% 		In particular, if $x\in(\xi,\xi+\delta)$, then $g(x)>g(\xi)$, contradicting maximality at $\xi$.\smallbreak
+% 		The argument when $g'(\xi)<0$ is similar. Finally, apply to $-g$ for the result at a minimum.
+%
+		\item Suppose $\xi\in(a,b)$ is a maximum: that is, $g(x)\le g(\xi)$ for all $x\neq\xi$. Then
 		\[
-			g'(\xi)=\lim_{x\to \xi}\frac{g(x)-g(\xi)}{x-\xi}>0
+			\frac{g(x)-g(\xi)}{x-\xi}\quad
+			\begin{cases}
+				\le 0&\text{whenever }x>\xi\\
+				\ge 0&\text{whenever }x<\xi
+			\end{cases}
 		\]
-		Let $\epsilon=g'(\xi)$ in the definition of limit: $\exists\delta>0$ such that
+		Now take the one-sided limits: since $g$ is differentiable at $\xi$, we see that
 		\[
-			0<\nm{x-\xi}<\delta
-			\implies\nm{\frac{g(x)-g(\xi)}{x-\xi}-g'(\xi)}<g'(\xi)
-			\implies 0<\frac{g(x)-g(\xi)}{x-\xi}<2g'(\xi)
+			0\le \lim_{x\to\xi^+}\frac{g(x)-g(\xi)}{x-\xi}
+			=g'(\xi)=
+			\lim_{x\to\xi^-}\frac{g(x)-g(\xi)}{x-\xi}\le 0
 		\]
-		In particular, if $x\in(\xi,\xi+\delta)$, then $g(x)>g(\xi)$, contradicting maximality at $\xi$.\smallbreak
-		The argument when $g'(\xi)<0$ is similar. Finally, apply to $-g$ for the result at a minimum.
+		Otherwise said $g'(\xi)=0$. The case when $\xi$ is a minimum is similar. 
+		
 	  \item By the Extreme Value Theorem (\ref{thm:cont2}), $g$ is bounded and attains its bounds.
 	  If the extrema \emph{both} occur at the endpoints $a,b$, then $g$ is constant: any $\xi\in(a,b)$ satisfies the result.	Otherwise, at least one extreme occurs at some $\xi\in(a,b)$: part 1 says that $g'(\xi)=0$.\hfill\qedhere
 	\end{enumerate}
 \end{proof}
+
 \goodbreak
 
 

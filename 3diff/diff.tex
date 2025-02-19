@@ -859,7 +859,7 @@ this is an incorrect application of the limit laws since the resulting quotient 
 	\end{enumerate}
 \end{examples}
 
-The approach generalizes: if $f$ and $g$ are differentiable and $f(a)=0=g(a)$, then
+The approach generalizes, if non-rigorously: if $f,g$ are differentiable at $a$ and $f(a)=0=g(a)$, then
 \[
 	\tcbhighmath{%
 		\lim_{x\to a}\frac{f(x)}{g(x)}
@@ -867,30 +867,15 @@ The approach generalizes: if $f$ and $g$ are differentiable and $f(a)=0=g(a)$, t
 		=\frac{f'(a)}{g'(a)}
 	}
 \]
-This is the simplest---if non-rigorous---version of l'Hôpital's rule. Our goal is to fully justify this and extend to the two situations:
-\begin{itemize}
-  \item One-sided limits, particularly when $a=\pm\infty$.
+Our goal is to fully justify this result and extend to several situations:
+\begin{itemize}\itemsep2pt
+  \item One-sided limits, including when $a=\pm\infty$.
+  \item When $\lim f(x)=0$ exists, but $f(a)$ does not ($g(x),g(a)$ similarly).
+  \item Indeterminate forms of type $\frac\infty\infty$ ($\lim f(x)=\infty$, etc.).
   \item When the RHS cannot be cleanly evaluated: for instance $g'(a)=0$ or if the original limit is $\pm\infty$.
 \end{itemize}
 
-L'Hôpital's rule is often discouraged in elementary calculus since such limits can often be evaluated more instructively using elementary methods (as in the above example), and because the complete proof is an absolute behemoth! To prepare for this, we first  generalize the MVT.
-
-\begin{lemm}{Extended Mean Value Theorem}{extmvt}
-	Fix $a<b$, suppose $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$. Then there exists $\xi\in(a,b)$ such that
-	\[
-		\big(f(b)-f(a)\big)g'(\xi)=\big(g(b)-g(a)\big)f'(\xi)
-	\] 
-\end{lemm}
-
-\begin{proof}
-	Simply apply the standard mean value theorem (really Rolle's theorem) to
-	\[
-		h(t)=\bigl(f(b)-f(a)\bigr)g(t)-\bigl(g(b)-g(a\bigr))f(t)
-	\]
-	which satisfies $h(a)=h(b)$.
-\end{proof}
-
-\goodbreak
+Here is the full result.
 
 \begin{thm}{L'Hôpital's Rule}{}
 	Let $a\in\R\cup\{\pm\infty\}$ and suppose functions $f$ and $g$ satisfy:
@@ -903,16 +888,21 @@ L'Hôpital's rule is often discouraged in elementary calculus since such limits 
 	Then $\lim\limits_{x\to a}\frac{f(x)}{g(x)}=L$. The same result holds for one-sided limits.
 \end{thm}
 
+The full proof is a behemoth---we postpone this until after several examples. In part because of this, and because examples can often be  evaluated more instructively using elementary methods (as in the above example), l'Hôpital's rule is often discouraged in elementary calculus.
+
+
+\goodbreak
+
 
 \begin{examples}{}{lhopital}
-	\exstart If $f(x)=e^{4x}$ and $g(x)=21x-17$, then $\lim\limits_{x\to\infty}\frac{f(x)}{g(x)}$ is an indeterminate form of type $\frac\infty\infty$. By l'Hôpital's rule,
+	\exstart If $f(x)=e^{4x}$ and $g(x)=21x-17$, then $\lim\limits_{x\to\infty}\frac{f(x)}{g(x)}$ has type $\frac\infty\infty$. By l'Hôpital's rule,
 	\[
 	 	\lim_{x\to\infty}\frac{f'(x)}{g'(x)}
 	 	=\lim_{x\to\infty}\frac{4e^{4x}}{21}=\infty
 	 	\implies \lim_{x\to\infty}\frac{e^{4x}}{21x-17}=\infty
 	\]
 	
-	\begin{enumerate}\setcounter{enumi}{1}
+	\begin{enumerate}\setcounter{enumi}{1}\itemsep0pt
 	  \item For an example of type $\frac 00$, consider $f(x)=x^2-9$ and $g(x)=\ln(4-x)$:
 	  \[
 		  \lim_{x\to 3^-}\frac{f'(x)}{g'(x)} 
@@ -927,36 +917,29 @@ L'Hôpital's rule is often discouraged in elementary calculus since such limits 
 	  	=\lim_{x\to 0}\frac{4e^{4x}-4}{2x} 
 	  	=\lim_{x\to 0}\frac{16e^{4x}}{2}=8
 	  \]
-	  This is strictly an abuse of protocol, though a generally accepted one: one shouldn't properly state the first limit until one knows it exists, yet this existence depends on the last limit! As long as everything works, you are fine. However\ldots
+	  This is a generally accepted abuse of protocol: one shouldn't really state the first limit until one knows the last limit exists! As long as everything works, you are fine. However\ldots
 	  
 	  \item\label{ex:lhopitalproblem1} It is crucially important that the limit $\lim\frac{f'}{g'}$ exists \emph{before} applying l'Hôpital's rule! Consider $f(x)=x+\cos x$ and $g(x)=x$: certainly $\lim\limits_{x\to\infty}\frac{f(x)}{g(x)}$ has type $\frac\infty\infty$, however
 	  \[
 	  	\lim\limits_{x\to\infty}\frac{f'(x)}{g'(x)}
 	  	=\lim\limits_{x\to\infty}1-\sin x
 	  \]
-	  does not exist! In this case the rule is unnecessary, since
+	  does not exist! In this case the rule is unnecessary: appealing to the squeeze theorem,
 	  \[
 	  	\frac{f(x)}{g(x)}
 	  	=1+\frac{\cos x}x\xrightarrow[x\to\infty]{} 1
 	  \]
-	  by the squeeze theorem.
 	  
-	 	\item Finally, yet another reason for why l'Hôpital's rule is often prohibited in Freshman calculus. Consider:
+	 	\item For another reason for why l'Hôpital's rule is often prohibited in Freshman calculus, consider
 	 	\[
 	 		\lim_{x\to 0}\frac{\sin x}x
 	 		=\lim_{x\to 0}\frac{\cos x}{1}=1
 	 	\]
-	 	This appears to be a legitimate application of the rule. However, recall (Exercise \ref*{sec:derivproperties}.\ref{ex:trigdiff}) that one purpose of this limit is to demonstrate that $\diff x\sin x=\cos x$; to use this fact to calculate the limit on which it depends is the very definition of circular logic!
+	 	This appears legitimate. However, recall (Exercise \ref*{sec:derivproperties}.\ref{ex:trigdiff}) that this limit is used to demonstrate $\diff x\sin x=\cos x$; to use this to calculate the limit on which it depends is circular logic!
 	\end{enumerate}
 \end{examples}
 
-
-\goodbreak
-
-
-\boldsubsubsection{Other Indeterminate Forms}
-
-The remaining indeterminate forms listed in Definition \ref{defn:indetform} may be modified so that l'Hôpital's rule applies. Since you've likely seen several such examples in elementary calculus, we give just a couple.
+The remaining indeterminate forms (Definition \ref{defn:indetform}) may be modified so that l'Hôpital's rule applies.
 
 \begin{examples}{}{}
 	\exstart An indeterminate form of type $\infty-\infty$ may be transformed to one of type $\frac 00$ before applying the rule (twice):
@@ -966,6 +949,9 @@ The remaining indeterminate forms listed in Definition \ref{defn:indetform} may 
 	  	&=\lim\limits_{x\to 0^+}\frac{1-e^x}{e^x-1+xe^x} \tag{still type $\frac 00$}\\
 	  	&=\lim\limits_{x\to 0^+}\frac{-e^x}{2e^x+xe^x} =-\frac 12
 	  \end{align*}
+	  
+	\goodbreak
+	  
 	\begin{enumerate}\setcounter{enumi}{1}
 	 	\item For an indeterminate form of type $1^\infty$, we use the log laws \& continuity of the exponential:
 	 	\begin{align*}
@@ -980,7 +966,25 @@ The remaining indeterminate forms listed in Definition \ref{defn:indetform} may 
 
 \boldsubsection{Proving l'Hôpital's Rule}
 
-The complete argument is very lengthy; if you do nothing else, read the following proof of the simplest case. Everything else is a modification.
+The complete argument is very lengthy. It starts with an extension of the Mean Value Theorem.
+
+\begin{lemm}{Extended Mean Value Theorem}{extmvt}
+	Fix $a<b$, suppose $f,g$ are continuous on $[a,b]$ and differentiable on $(a,b)$. Then there exists $\xi\in(a,b)$ such that
+	\[
+		\big(f(b)-f(a)\big)g'(\xi)=\big(g(b)-g(a)\big)f'(\xi)
+	\] 
+\end{lemm}
+
+\begin{proof}
+	Apply the standard mean value theorem (really Rolle's theorem) to
+	\[
+		h(t)=\bigl(f(b)-f(a)\bigr)g(t)-\bigl(g(b)-g(a\bigr))f(t)
+	\]
+	which satisfies $h(a)=h(b)$.
+\end{proof}
+
+
+Now for the main event. If you do nothing else, read the following proof of the simplest case. Everything else is a modification.
 
 \begin{proof}[Proof (Case (a)/type $\frac 00$, with right limits)]
 	Suppose we have a form of type $\smash[b]{\frac 00=\lim\limits_{x\to a^+}\frac{f(x)}{g(x)}}$ taking right-limits at a finite location $a$, and that the resulting limit $L$ is finite.\smallbreak

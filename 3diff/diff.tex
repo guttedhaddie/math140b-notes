@@ -227,21 +227,21 @@ More esoteric examples of non-differentiability are possible:
 	Let $f,g$ be differentiable and $k,l$ be constants.
 	\begin{enumerate}
 	  \item (Linearity)\quad The function $kf+lg$ is differentiable with $(kf+lg)'=kf'+lg'$.
-	  \item (Product rule)\quad The function $fg$ is differentiable with $(fg)'=f'g+fg'$.
-	  \item (Inverse functions)\quad If $f$ is bijective with non-zero derivative, then $f^{-1}$ is differentiable and
+	  \item (Product rule)\quad The function $fg$ is differentiable with $(fg)'=f' g+fg'$.
+	  \item (Inverse functions)\quad Suppose $f$ is bijective, $b=f^{-1}(a)$ is an interior point of $\dom f^{-1}$, and $f'(a)\neq 0$, then $f^{-1}$ is differentiable at $b$ and
 		\[
-			\diff yf^{-1}(y)=\frac 1{f'\big(f^{-1}(y))\big)}
+			\diffat y{y=b} f^{-1}(y)=\frac 1{f'(a)}=\frac 1{f'\big(f^{-1}(b)\big)}
 		\] 
 	\end{enumerate}
 \end{thm}
 
 \begin{proof}
-Parts 1 and 2 follow from the limit laws:
-\begin{gather*}
-	\lim_{x\to a}\frac{(kf+lg)(x)-(kf+lg)(a)}{x-a}=\lim_{x\to a}\left[k\frac{f(x)-f(a)}{x-a}+l\frac{g(x)-g(a)}{x-a}\right]=kf'(a)+lg'(a)\\
-	\lim_{x\to a}\frac{f(x)g(x)-f(a)g(a)}{x-a}=\lim_{x\to a}\left[\frac{f(x)-f(a)}{x-a}g(x)+f(a)\frac{g(x)-g(a)}{x-a}\right]=f'(a)g(a)+f(a)g'(a)
-\end{gather*}
-Note where we used the continuity of $g$ in the second line ($\lim g(x)=g(a)$). Part 3 is an exercise.
+	Parts 1 and 2 follow from the limit laws:
+	\begin{gather*}
+		\lim_{x\to a}\frac{(kf+lg)(x)-(kf+lg)(a)}{x-a}=\lim_{x\to a}\left[k\frac{f(x)-f(a)}{x-a}+l\frac{g(x)-g(a)}{x-a}\right]=kf'(a)+lg'(a)\\
+		\lim_{x\to a}\frac{f(x)g(x)-f(a)g(a)}{x-a}=\lim_{x\to a}\left[\frac{f(x)-f(a)}{x-a}g(x)+f(a)\frac{g(x)-g(a)}{x-a}\right]=f'(a)g(a)+f(a)g'(a)
+	\end{gather*}
+	Note where we used the continuity of $g$ in the second line ($\lim g(x)=g(a)$). Part 3 is an exercise.
 \end{proof}
 
 The inverse function rule should be intuitive: since the graphs of $f$ and $f^{-1}$ are related by reflection in the diagonal $y=x$, gradients at corresponding points are reciprocals. The result feels even more natural in Leibniz's notation: $\diff[x]{y}=\frac 1{\dy/\dx}$.

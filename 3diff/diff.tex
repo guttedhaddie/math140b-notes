@@ -819,7 +819,7 @@ If $f'(x)$ is \emph{continuous,} this is just the intermediate value theorem app
 		\end{enumerate}
 	  
 	  
-	  \item Suppose $f'$ is differentiable on $(a,b)$, and is continuous except for a discontinuity at $c\in(a,b)$.
+	  \item Suppose $f'$ exists on $(a,b)$, and is continuous except for a discontinuity at $c\in(a,b)$.
 	  \begin{enumerate}
 	    \item Obtain a contradiction if $\lim\limits_{x\to c^+}f'(x)=L<f'(c)$. Hence argue that $f'$ cannot have a \emph{removable} or a \emph{jump} discontinuity at $x=c$.\par
 	    (\emph{Hint: let $\epsilon=\frac{f'(c)-L}2$ in the definition of limit and apply IVT for derivatives})
@@ -1213,7 +1213,7 @@ The above behavior occurs in general: the truncated polynomials provide better a
 	\]
 	If $f$ is infinitely differentiable at $x=c$, then its \emph{Taylor series} centered at $x=c$ is the power series
 	\[
-		\rT f(x) =\sum_{n=0}^\infty\frac{f^{(n)}(c)}{n!}(x-c)^n
+		\rT_c f(x) =\sum_{n=0}^\infty\frac{f^{(n)}(c)}{n!}(x-c)^n
 	\]
 	When $c=0$ this is known as a \emph{Maclaurin series.}\footnotemark
 \end{defn}
@@ -1227,7 +1227,7 @@ For simplicity we'll mostly work with Maclaurin series, with general situation h
 \begin{examples}{}{basictaylor}
 	\exstart If $f(x)=e^{3x}$, then $f^{(n)}(x)=3^ne^x$, from which the Maclaurin series is
 	\[
-	  \rT f(x)=\sum_{n=0}^\infty\frac{3^n}{n!}x^n
+	  \rT_0 f(x)=\sum_{n=0}^\infty\frac{3^n}{n!}x^n
 	\]
 	\begin{enumerate}\setcounter{enumi}{1}
 	  \item If $g(x)=\sin 7x$, then the sequence of derivatives is
@@ -1236,7 +1236,7 @@ For simplicity we'll mostly work with Maclaurin series, with general situation h
 	  \]
 		At $x=0$, every even derivative is zero whereas the odd derivatives alternate in sign. The Maclaurin series is easily seen to be
 	  \[
-	  	\rT g(x)=\sum_{n=0}^\infty\frac{(-1)^n7^{2n+1}}{(2n+1)!}x^{2n+1}
+	  	\rT_0 g(x)=\sum_{n=0}^\infty\frac{(-1)^n7^{2n+1}}{(2n+1)!}x^{2n+1}
 	  \]
 	  
 	  \item\label{ex:basictaylor3} If $h(x)=\sqrt x$, then $h'(x)=\frac 12x^{-1/2}$, $h''(x)=\frac{-1}{2^2}x^{-3/2}$, and $h'''(x)=\frac{3}{2^3}x^{-5/2}$, from which the third Taylor polynomial centered at $c=1$ is
@@ -1270,7 +1270,7 @@ Otherwise said, $P$ is its own Maclaurin series! The same discussion holds for p
 If this holds for \emph{all} $k\le n$, then $P=p_n$ is the $n\th$ Taylor polynomial of $f$! With a little modification, we've proved the following:
 
 \begin{thm}{}{taylorlem}
-	\exstart If $f(x)=\smash[b]{\sum\limits_{n=0}^\infty} a_n(x-c)^n$ on a neighborhood of $c$, then $\smash[b]{\sum\limits_{n=0}^\infty} a_n(x-c)^n$ is the Taylor series of $f$.
+	\exstart If $f(x)=\sum a_n(x-c)^n$ is a power series defined on a neighborhood of $c$, then $T_cf(x)=f(x)$: the function is its own Taylor series!
 	\begin{enumerate}\setcounter{enumi}{1}
 		\item The $n\th$ Taylor polynomial of $f$ centered at $x=c$ is the unique polynomial $p_n$ of degree $\le n$ whose value and first $n$ derivatives agree with those of $f$ at $x=c$: that is
 		\[

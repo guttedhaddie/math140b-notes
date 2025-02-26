@@ -1,4 +1,3 @@
-settings.prc=false;
 settings.outformat="pdf";
 
 texpreamble("\usepackage{amsmath}
@@ -8,7 +7,7 @@ texpreamble("\usepackage{amsmath}
 ");
 import graph;
 
-size(350,120,IgnoreAspect);
+size(360,110,IgnoreAspect);
 
 real f(real x) {return 0.8*sin(x)+0.2x+0.6;}
 pair F(real x) {return (x,f(x));}

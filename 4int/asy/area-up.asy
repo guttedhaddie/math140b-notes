@@ -1,4 +1,3 @@
-settings.prc=false;
 settings.outformat="pdf";
 
 texpreamble("\usepackage{amsmath}
@@ -8,7 +7,7 @@ texpreamble("\usepackage{amsmath}
 ");
 import graph;
 
-size(147,0);
+size(150,0);
 
 real f(real x) {return x^2;}
 pair F(real x) {return (x,f(x));}

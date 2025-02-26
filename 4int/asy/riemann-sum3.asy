@@ -1,4 +1,3 @@
-settings.prc=false;
 settings.outformat="pdf";
 
 texpreamble("\usepackage{amsmath}
@@ -47,6 +46,8 @@ filldraw(box((t,f(pi+acos(0.25))),(x[3],f(t))),heavygreen);
 xtick(Label("$t$",align=S),t,S,heavygreen);
 
 label("Extra area!", (1.1x[2],2.1),heavygreen);
+
+draw((1.35x[2],1.8)--(0.95t,1.3),heavygreen,Arrow);
 
 label("$\cdots$", (1,0.6));
 label("$\cdots$", (9,0.6));

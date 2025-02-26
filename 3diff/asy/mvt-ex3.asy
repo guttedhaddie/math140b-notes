@@ -1,4 +1,3 @@
-settings.prc=false;
 settings.outformat="pdf";
 
 texpreamble("\usepackage{amsmath}
@@ -8,11 +7,11 @@ texpreamble("\usepackage{amsmath}
 ");
 import graph;
 
-size(250,40,IgnoreAspect);
+size(250,37,IgnoreAspect);
 
-xaxis(-3.6,1,red,RightTicks(new real[]{-2,0}));
-draw(Label("$x$",align=2S,Relative(0.7)),(1,0)--(1.6,0),red,Arrow);
+xaxis(-3.6,1.2,red,RightTicks(new real[]{-2,0}));
+draw(Label("$x$",align=2S,Relative(0.7)),(1,0)--(1.8,0),red,Arrow);
 
-label("$f'(x)>0$",(-3,1/4),red);
-label("$f'(x)<0$",(-1,1/4),red);
-label("$f'(x)>0$",(1,1/4),red);
+label(scale(0.9)*"$f'(x)>0$",(-3,1/4),red);
+label(scale(0.9)*"$f'(x)<0$",(-1,1/4),red);
+label(scale(0.9)*"$f'(x)>0$",(1,1/4),red);

@@ -8,7 +8,7 @@ texpreamble("\usepackage{amsmath}
 ");
 import graph;
 
-size(160,100,IgnoreAspect);
+size(160,90,IgnoreAspect);
 
 xaxis("$x$",-2.1,3.2,red,RightTicks(new real[]{-2,-1,1,2,3}));
 yaxis("$g(x)$",-2.2,2.2,red,LeftTicks(new real[]{-2,-1,1,2}));

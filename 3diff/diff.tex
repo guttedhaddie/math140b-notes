@@ -825,8 +825,8 @@ If $f'(x)$ is \emph{continuous,} this is just the intermediate value theorem app
 	  
 	  \item Suppose $f'$ exists on $(a,b)$, and is continuous except for a discontinuity at $c\in(a,b)$.
 	  \begin{enumerate}
-	    \item Argue that $c$ isn't \emph{removable} or a \emph{jump} discontinuity by considering $\smash[b]{\lim\limits_{x\to c^+}f'(x)=L\neq f'(c)}$ and obtaining a contradiction.\par
-	    (\emph{Hint: let $\epsilon=\frac{\nm{f'(c)-L}}2$ in the definition of limit and apply IVT for derivatives})
+	    \item Suppose $\lim_{x\to c^+}f'(x)=L<f'(c)$. By taking $\epsilon=\frac{f'(c)-L}2$ in the definition of this limit and applying IVT for derivatives, obtain a contradiction.\par
+	    Hence argue that $c$ cannot be a \emph{removable} or a \emph{jump} discontinuity.
 	    
 	    \item Similarly, show that $f'$ cannot have an \emph{infinite} discontinuity by considering $\lim\limits_{x\to c^+}f'(x)=\infty$.
 	    
